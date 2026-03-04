@@ -157,15 +157,16 @@ ul {
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  height: 60px;
+  height: 64px;
 }
 
 /* Left: Logo + Affiliation */
 .header-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .header-logo {
@@ -174,20 +175,38 @@ ul {
 }
 
 .header-logo img {
-  height: 36px;
+  height: 48px;
   width: auto;
 }
 
 .header-affiliation {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  max-width: clamp(240px, 28vw, 420px);
+  overflow: hidden;
 }
 
-.affiliation-text {
+.affiliation-line1 {
   font-size: 11px;
-  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
   letter-spacing: 0.02em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.affiliation-line2 {
+  font-size: 10px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Right: Actions */
@@ -273,18 +292,15 @@ ul {
 
 .gnav-list {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
   list-style: none;
-}
-
-.gnav-item:not(:last-child) {
-  margin-right: 20px;
 }
 
 .gnav-item a {
   position: relative;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 600;
   display: inline-block;
   padding: 5px 0;
   transition: .3s;
@@ -306,6 +322,15 @@ ul {
 }
 
 .gnav-item a:hover:after {
+  width: 100%;
+}
+
+/* Keyboard focus state */
+.gnav-item a:focus-visible {
+  outline: none;
+}
+
+.gnav-item a:focus-visible:after {
   width: 100%;
 }
 
@@ -897,7 +922,7 @@ a.contact-item:hover {
   }
 
   .header-logo img {
-    height: 28px;
+    height: 36px;
   }
 
   .header-affiliation {
