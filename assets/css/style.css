@@ -200,23 +200,24 @@ ul {
 .theme-toggle {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 8px;
-  padding: 6px;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 
 .theme-toggle:hover {
-  border-color: rgba(255,255,255,0.6);
+  border-color: rgba(255,255,255,0.5);
   background: rgba(255,255,255,0.08);
 }
 
 .theme-toggle .material-icons-outlined {
-  font-size: 20px;
-  color: #fff;
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
 }
 
 .theme-toggle .icon-dark { display: none; }
@@ -323,10 +324,10 @@ ul {
 /* Focus ring */
 a:focus, button:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
 
-.lang-switch { display:flex; align-items:center; gap:6px; }
-.lang-switch a { font-size:12px; font-weight:600; color:rgba(255,255,255,0.6); text-decoration:none; transition: color 0.2s; }
-.lang-switch a:hover, .lang-switch a.active { color:#fff; }
-.lang-divider { color:rgba(255,255,255,0.4); font-size:12px; }
+.lang-switch { display:flex; align-items:center; gap:4px; }
+.lang-switch button { font-size:11px; font-weight:700; color:rgba(255,255,255,0.7); background:transparent; border:1px solid rgba(255,255,255,0.25); padding:5px 8px; border-radius:6px; cursor:pointer; transition: all 0.2s; }
+.lang-switch button:hover { color:#fff; border-color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.08); }
+.lang-switch button.active { color:#fff; border-color:rgba(255,255,255,0.6); background:rgba(255,255,255,0.12); }
 
 /* ================================
    Main Visual (Hero)
