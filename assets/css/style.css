@@ -780,6 +780,13 @@ a.contact-item:hover {
   color: var(--accent);
 }
 
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
 /* ================================
    Page Top Button
    ================================ */
