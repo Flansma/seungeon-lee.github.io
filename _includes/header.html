@@ -1,21 +1,29 @@
 <header class="header">
   <div class="container">
-    <h1 class="header-logo">
-      <a href="https://clinfo.med.kyoto-u.ac.jp" class="header-img" target="_blank" rel="noopener">
+    <!-- Left: Logo + Affiliation -->
+    <div class="header-brand">
+      <a href="https://clinfo.med.kyoto-u.ac.jp" class="header-logo" target="_blank" rel="noopener">
         <img src="{{ site.baseurl }}/assets/img/E-W.png" alt="Okuno Lab">
       </a>
-    </h1>
-    <div class="nav-wrapper">
-      <nav class="gnav" id="gnav">
-        <ul class="gnav-list">
-          <li class="gnav-item"><a href="#about">ABOUT</a></li>
-          <li class="gnav-item"><a href="#biography">BIOGRAPHY</a></li>
-          <li class="gnav-item"><a href="#bibliography">BIBLIOGRAPHY</a></li>
-          <li class="gnav-item"><a href="#works">RECENT WORKS</a></li>
-          <li class="gnav-item"><a href="#skill">SKILL</a></li>
-          <li class="gnav-item"><a href="#contact">CONTACT</a></li>
-        </ul>
-      </nav>
+      <div class="header-affiliation">
+        <span class="affiliation-text">京都大学 大学院医学研究科 人間健康科学系専攻 ビッグデータ医科学分野</span>
+      </div>
+    </div>
+
+    <!-- Center: Navigation -->
+    <nav class="gnav" id="gnav">
+      <ul class="gnav-list">
+        <li class="gnav-item"><a href="#about">ABOUT</a></li>
+        <li class="gnav-item"><a href="#biography">BIOGRAPHY</a></li>
+        <li class="gnav-item"><a href="#bibliography">BIBLIOGRAPHY</a></li>
+        <li class="gnav-item"><a href="#works">RECENT WORKS</a></li>
+        <li class="gnav-item"><a href="#skill">SKILL</a></li>
+        <li class="gnav-item"><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right: Lang + Theme + Menu -->
+    <div class="header-actions">
       <div class="lang-switch">
         <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
         <button type="button" data-lang="ja" onclick="setLang('ja')">JA</button>

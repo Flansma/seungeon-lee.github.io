@@ -156,37 +156,46 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 0 40px;
+  height: 60px;
 }
 
-/* Header logo */
-.header-logo {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-right: 20px;
-  letter-spacing: .05em;
+/* Left: Logo + Affiliation */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   flex-shrink: 0;
 }
 
-.header-logo a {
-  color: #333;
-}
-
-.header-img {
-  display: block;
-}
-
-.header-img img {
-  width: 300px;
-  height: auto;
-  display: block;
-}
-
-/* Nav wrapper */
-.nav-wrapper {
+.header-logo {
   display: flex;
   align-items: center;
+}
+
+.header-logo img {
+  height: 36px;
+  width: auto;
+}
+
+.header-affiliation {
+  display: flex;
+  align-items: center;
+}
+
+.affiliation-text {
+  font-size: 11px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Right: Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Theme toggle button */
@@ -311,7 +320,6 @@ a:focus, button:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: 20px;
 }
 
 .lang-switch button {
@@ -877,28 +885,31 @@ a.contact-item:hover {
 
   /* Header - Mobile */
   .header .container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 16px;
-  }
-
-  .header-logo {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .header-img img {
-    width: 160px;
-  }
-
-  .nav-wrapper {
+    height: auto;
+    padding: 12px 16px;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 8px;
   }
 
+  .header-brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-logo img {
+    height: 28px;
+  }
+
+  .header-affiliation {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
   .lang-switch {
-    margin-left: 10px;
+    margin-left: 0;
   }
 
   .gnav {
