@@ -160,13 +160,40 @@ ul {
   height: 70px;
 }
 
-/* Header actions (theme toggle + hamburger) */
-.header-actions {
+/* Header brand (logo + affiliation) */
+.header-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-left: auto;
-  margin-right: 16px;
+  gap: 16px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.header-affiliation {
+  display: flex;
+  flex-direction: column;
+}
+
+.affiliation-ja {
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Header right (nav + lang + theme + menu) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 /* Theme toggle button */
@@ -296,9 +323,10 @@ ul {
 /* Focus ring */
 a:focus, button:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
 
-.lang-switch { display:flex; align-items:center; gap:8px; margin-left:auto; }
-.lang-switch button { font-size:12px; font-weight:700; color:#e5e7eb; background:transparent; border:1px solid rgba(255,255,255,0.25); padding:4px 8px; border-radius:6px; cursor:pointer; }
-.lang-switch button.active, .lang-switch button:hover { color:#fff; border-color:rgba(255,255,255,0.6); background:rgba(255,255,255,0.08); }
+.lang-switch { display:flex; align-items:center; gap:6px; }
+.lang-switch a { font-size:12px; font-weight:600; color:rgba(255,255,255,0.6); text-decoration:none; transition: color 0.2s; }
+.lang-switch a:hover, .lang-switch a.active { color:#fff; }
+.lang-divider { color:rgba(255,255,255,0.4); font-size:12px; }
 
 /* ================================
    Main Visual (Hero)
@@ -837,13 +865,25 @@ a.contact-item:hover {
     gap: 0;
   }
 
-  .header-logo {
-    margin-bottom: 0;
+  .header-brand {
+    gap: 10px;
   }
 
-  .header-actions {
+  .logo-img {
+    height: 32px;
+  }
+
+  .header-affiliation {
+    display: none;
+  }
+
+  .header-right {
     margin-left: auto;
-    margin-right: 0;
+    gap: 8px;
+  }
+
+  .gnav {
+    display: none;
   }
 
   /* Show hamburger on mobile */
@@ -855,6 +895,7 @@ a.contact-item:hover {
 
   /* Mobile nav drawer */
   .gnav {
+    display: none;
     position: fixed;
     top: 60px;
     left: 0;
@@ -869,6 +910,7 @@ a.contact-item:hover {
   }
 
   .gnav.is-open {
+    display: block;
     transform: translateX(0);
   }
 
