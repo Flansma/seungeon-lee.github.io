@@ -1,0 +1,32 @@
+title: "Seungeon Lee | Portfolio"
+timezone: Asia/Tokyo
+url: "https://flansma.github.io"
+baseurl: "/seungeon-lee.github.io"
+permalink: pretty
+
+# Prevent macOS metadata from being processed
+exclude:
+  - .DS_Store
+  - img/.DS_Store
+
+# Collections for itemized content
+collections:
+  publications:
+    output: false
+    sort_by: date
+    order: descending
+  preprints:
+    output: false
+    sort_by: date
+    order: descending
+  talks:
+    output: false
+    sort_by: date
+    order: descending
+  awards:
+    output: false
+    sort_by: date
+    order: descending
+
+markdown: kramdown
+theme: null

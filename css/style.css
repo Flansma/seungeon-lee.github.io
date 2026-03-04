@@ -159,6 +159,17 @@ ul {
   opacity: 1;
 }
 
+/* Skip link for accessibility */
+.skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { position:fixed; left:16px; top:16px; width:auto; height:auto; padding:8px 12px; background:#111827; color:#fff; border-radius:8px; z-index:1000; }
+
+/* Focus ring */
+a:focus, button:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+.lang-switch { display:flex; align-items:center; gap:8px; margin-left:auto; }
+.lang-switch button { font-size:12px; font-weight:700; color:#e5e7eb; background:transparent; border:1px solid rgba(255,255,255,0.25); padding:4px 8px; border-radius:6px; cursor:pointer; }
+.lang-switch button.active, .lang-switch button:hover { color:#fff; border-color:rgba(255,255,255,0.6); background:rgba(255,255,255,0.08); }
+
 /* ================================
    Main Visual (Hero)
    ================================ */
@@ -408,6 +419,119 @@ ul {
 /* ================================
    Skill
    ================================ */
+/* ================================
+   Bibliography
+   ================================ */
+.bibliography .container { max-width: 860px; }
+.biblio-list {
+  counter-reset: biblio;
+  list-style: none;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+.biblio-item {
+  counter-increment: biblio;
+  padding: 12px 0 12px 40px;
+  position: relative;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.biblio-item::before {
+  content: counter(biblio) ".";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 28px;
+  text-align: right;
+  color: #8892a6;
+  font-weight: 600;
+}
+
+.biblio-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.biblio-title {
+  display: block;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.biblio-meta {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #666;
+}
+
+.biblio-meta .highlight-name {
+  font-weight: 600;
+  color: #1a1a2e;
+  text-decoration: underline;
+  text-decoration-color: #1a73e8;
+  text-underline-offset: 3px;
+}
+
+/* ================================
+   News feed (Recent Works)
+   ================================ */
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.news-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  transition: background-color .2s;
+}
+
+.news-item:hover {
+  background-color: rgba(26, 115, 232, 0.05);
+}
+
+.date-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #0b3b7e;
+  background: #e6f0ff;
+  border: 1px solid #cfe0ff;
+}
+
+.type-badge.type-preprint { color: #92400e; background:#fef3c7; border-color:#fde68a; }
+.type-badge.type-talk { color: #065f46; background:#d1fae5; border-color:#a7f3d0; }
+.type-badge.type-award { color: #7c2d12; background:#ffedd5; border-color:#fed7aa; }
+
+.news-title { font-weight: 600; color: #1f2937; }
+.news-venue { color: #6b7280; }
+
+@media screen and (max-width: 767px) {
+  .biblio-item { padding-left: 32px; }
+  .biblio-item::before { width: 24px; }
+  .date-badge { display: none; }
+}
+
 .skill-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -724,3 +848,72 @@ a.contact-item:hover {
     padding: 20px;
   }
 }
+
+/* ================================
+   Selected publications
+   ================================ */
+.selected-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ================================
+   Generic section lists (Awards etc.)
+   ================================ */
+.section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-item { border-bottom: 1px dashed #e5e7eb; padding: 12px 0; }
+.section-link { text-decoration: none; color: inherit; display: flex; gap: 8px; align-items: baseline; }
+.section-title { font-weight: 700; color: #1f2937; }
+.section-meta { color: #6b7280; font-size: 13px; }
+
+.selected-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+  transition: box-shadow .2s, transform .05s;
+}
+
+.selected-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.08); transform: translateY(-1px); }
+
+.selected-meta { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.selected-venue { font-size: 12px; color: #2563eb; font-weight: 700; letter-spacing: .03em; }
+.selected-year { font-size: 12px; color: #6b7280; }
+.selected-title { font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 6px; }
+.selected-authors { font-size: 13px; color: #4b5563; margin-bottom: 8px; }
+.selected-links .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 6px; margin-right: 6px; color: #0b3b7e; background: #e6f0ff; border: 1px solid #cfe0ff; }
+
+.selected-actions { margin-top: 8px; }
+.btn { display: inline-block; font-weight: 700; font-size: 13px; color: #0b3b7e; border: 1px solid #cfe0ff; background: #e6f0ff; padding: 8px 12px; border-radius: 8px; text-decoration: none; }
+.btn:hover { background: #d9e8ff; }
+
+@media screen and (max-width: 767px) {
+  .selected-list { grid-template-columns: 1fr; }
+}
+
+/* ================================
+   Badges (status/format)
+   ================================ */
+.badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 6px; border: 1px solid transparent; }
+.badge-status-accepted { color:#065f46; background:#d1fae5; border-color:#a7f3d0; }
+.badge-status-submitted, .badge-status-under\ review { color:#92400e; background:#fef3c7; border-color:#fde68a; }
+.badge-status-in\ press { color:#1f2937; background:#e5e7eb; border-color:#d1d5db; }
+.badge-preprint { color:#7c2d12; background:#ffedd5; border-color:#fed7aa; }
+.badge-oral { color:#0b3b7e; background:#e6f0ff; border-color:#cfe0ff; }
+.badge-poster { color:#7a2e0e; background:#ffe8cc; border-color:#ffd8a8; }
+
+.mini-badge { font-size:10px; font-weight:700; padding:1px 5px; border-radius:5px; border:1px solid #e5e7eb; color:#4b5563; background:#f9fafb; }
+.mini-oral { color:#0b3b7e; background:#e6f0ff; border-color:#cfe0ff; }
+.mini-poster { color:#7a2e0e; background:#ffe8cc; border-color:#ffd8a8; }

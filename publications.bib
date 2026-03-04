@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /publications.bib
+---
+{% assign pubs = site.publications | sort: 'date' | reverse %}
+{% for p in pubs %}
+@article{ {{ p.title | slugify: 'pretty' }}-{{ p.date | date: "%Y" }},
+  title   = { {{ p.title | replace: '"', '\"' }} },
+  author  = { {% if p.authors %}{{ p.authors | join: ' and ' }}{% endif %} },
+  journal = { {{ p.venue }} },
+  year    = { {{ p.date | date: "%Y" }} },
+  {% if p.doi %}doi     = { {{ p.doi }} },{% endif %}
+  {% if p.link %}url     = { {{ p.link }} },{% endif %}
+}
+
+{% endfor %}
