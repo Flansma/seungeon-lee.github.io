@@ -165,33 +165,28 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-shrink: 0;
 }
 
 .header-logo {
-  display: flex;
-  align-items: center;
-  line-height: 1;
+  display: block;
+  line-height: 0;
 }
 
 .logo-img {
-  height: 36px;
+  height: 32px;
   width: auto;
-  display: block;
+  vertical-align: middle;
 }
 
 .header-affiliation {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  line-height: 1;
 }
 
 .affiliation-ja {
-  font-size: 10px;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.01em;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0;
   white-space: nowrap;
-  line-height: 1.4;
 }
 
 /* Header right (nav + lang + theme + menu) */
@@ -308,14 +303,15 @@ ul {
 
 .gnav-item a {
   position: relative;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   display: inline-block;
-  padding: 8px 12px;
-  letter-spacing: .05em;
+  padding: 6px 10px;
+  letter-spacing: .04em;
   color: rgba(255, 255, 255, 0.85);
   border-radius: 6px;
   transition: all .25s;
+  white-space: nowrap;
 }
 
 .gnav-item a:hover {
