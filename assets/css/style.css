@@ -178,7 +178,7 @@ ul {
 }
 
 .header-img img {
-  width: 280px;
+  width: 300px;
   height: auto;
   display: block;
 }
@@ -310,34 +310,33 @@ a:focus, button:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-left: 20px;
-  font-weight: bold;
-  font-size: 14px;
+}
+
+.lang-switch button {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.lang-switch button:hover {
   color: #fff;
-  white-space: nowrap;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
 }
 
-.lang-switch a {
+.lang-switch button.active {
   color: #fff;
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background-color 0.3s, opacity 0.3s;
-}
-
-.lang-switch a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  opacity: 0.8;
-}
-
-.lang-switch a.active {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.lang-switch .separator {
-  color: #ccc;
-  font-weight: normal;
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.12);
 }
 
 /* ================================
@@ -889,7 +888,7 @@ a.contact-item:hover {
   }
 
   .header-img img {
-    width: 200px;
+    width: 160px;
   }
 
   .nav-wrapper {
