@@ -299,7 +299,7 @@ ul {
 }
 
 /* 드로어 내 언어 스위치 — 모바일에서만 표시 */
-.gnav-lang-switch {
+.gnav .gnav-lang-switch {
   display: none;
 }
 
@@ -1021,7 +1021,7 @@ a.contact-item:hover {
     display: none;
   }
 
-  .gnav-lang-switch {
+  .gnav .gnav-lang-switch {
     display: flex;
     margin-top: 24px;
     justify-content: center;
