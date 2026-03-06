@@ -168,8 +168,6 @@ ul {
   align-items: center;
   gap: 12px;
   min-width: 0;
-  padding-right: 14px;
-  border-right: 1px solid rgba(255,255,255,0.18);
 }
 
 .header-logo {
@@ -216,8 +214,6 @@ ul {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
-  padding-left: 14px;
-  border-left: 1px solid rgba(255,255,255,0.18);
 }
 
 /* Theme toggle button */
@@ -297,6 +293,10 @@ ul {
   flex: 1;
   display: flex;
   justify-content: center;
+  margin: 0 20px;
+  padding: 0 20px;
+  border-left: 1px solid rgba(255,255,255,0.18);
+  border-right: 1px solid rgba(255,255,255,0.18);
 }
 
 .gnav-list {
@@ -974,8 +974,6 @@ a.contact-item:hover {
 
   .header-actions {
     gap: 6px;
-    padding-left: 0;
-    border-left: none;
   }
 
   .gnav {
