@@ -14,3 +14,14 @@ permalink: /publications.bib
 }
 
 {% endfor %}
+{% assign pres = site.preprints | sort: 'date' | reverse %}
+{% for p in pres %}
+@misc{ {{ p.title | slugify: 'pretty' }}-{{ p.date | date: "%Y" }},
+  title   = { {{ p.title | replace: '"', '\"' }} },
+  author  = { {% if p.authors %}{{ p.authors | join: ' and ' }}{% endif %} },
+  note    = { {{ p.venue }} },
+  year    = { {{ p.date | date: "%Y" }} },
+  {% if p.link %}url     = { {{ p.link }} },{% endif %}
+}
+
+{% endfor %}
