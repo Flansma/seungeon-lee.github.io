@@ -156,6 +156,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: none;
   padding: 0 40px;
   height: 80px;
   column-gap: 20px;
@@ -301,7 +302,7 @@ ul {
 .gnav-list {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(16px, 3vw, 48px);
   list-style: none;
 }
 
