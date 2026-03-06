@@ -87,7 +87,7 @@ ul {
    Layout
    ================================ */
 .wrapper {
-  padding-top: 72px;
+  padding-top: 80px;
 }
 
 .section {
@@ -157,7 +157,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  height: 72px;
+  height: 80px;
   column-gap: 20px;
 }
 
@@ -177,8 +177,8 @@ ul {
 }
 
 .header-logo img {
-  height: 56px;
-  width: 56px;
+  height: 64px;
+  width: 64px;
   object-fit: contain;
 }
 
@@ -291,6 +291,12 @@ ul {
 .menu-toggle[aria-expanded="true"] .menu-icon::before { top: 0; transform: rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .menu-icon::after { top: 0; transform: rotate(-45deg); }
 
+
+.gnav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
 .gnav-list {
   display: flex;
