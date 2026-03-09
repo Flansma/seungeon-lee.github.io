@@ -4,9 +4,9 @@ title: "ゼロからわかるChatGPT — Introduction to AI in Hospital Operatio
 title_ja: "ゼロからわかるChatGPT — 病院業務におけるAI活用入門"
 title_ko: "제로부터 알 수 있는 ChatGPT — 병원 업무에서의 AI 활용 입문"
 date: 2026-03-09
-venue: "Yokawa Hospital (吉川病院), Miki, Hyogo"
-venue_ja: "吉川病院（兵庫県三木市）"
-venue_ko: "요카와병원 (효고현 미키시)"
+venue: "Yokawa Hospital (吉川病院), Miki, Hyogo (Invited)"
+venue_ja: "吉川病院（兵庫県三木市）／招待講演"
+venue_ko: "요카와병원 (효고현 미키시) / 초청 강연"
 presenter: Seungeon Lee
 type: talk
 format: invited
@@ -14,35 +14,43 @@ image: /assets/img/talks/yokawa-chatgpt-2026.jpg
 content_ja: |
   ## 概要
 
-  兵庫県三木市の吉川病院（医療法人社団 敬命会）にて、全職員約60〜70名を対象に1時間の招待講演を行いました。AI経験のない医療従事者向けに、ChatGPTの基礎からわかりやすく解説しました。
+  吉川病院（医療法人社団 敬命会、兵庫県三木市）にて、全職員約60〜70名を対象に約1時間の招待講演を実施。AI未経験者がすぐに使い始められる基礎から、病院全体でのAI導入・運用に必要な実務面までを扱いました。全編日本語。
 
-  ## 講演内容
+  ## 内容
 
-  - **ChatGPTの基本概念と使い方** — 大規模言語モデルとは何か、始め方
-  - **医療現場での活用例** — 診療記録の要約、患者説明資料の作成、文献検索の補助
-  - **プロンプトエンジニアリング** — 効果的なプロンプトの書き方
-  - **プライバシーとセキュリティ** — 患者データの取り扱い、AIツールに入力してはいけない情報
-  - **ライブデモ** — ChatGPTを使った実践的なデモンストレーション
+  - ChatGPTの基本的な仕組み、得意なこと・できないこと
+  - 画面操作のライブデモ（ログイン〜入力〜回答の確認）
+  - プロンプトの書き方：役割の指定、目標＋形式の明示、条件の追加
+  - 部署別の活用例：事務・総務（議事録、メール、院内掲示）、看護・診療（患者説明文の平易化、英語文献要約、学会発表構成）、教育・経営企画（研修資料、多言語対応）
+  - 議事録・お知らせ文を複数トーンで同時生成するライブデモ
+  - 業務プロセス全体での活用ポイント（各工程を少しずつ加速する考え方）
+  - プロジェクト機能・カスタムGPTsによる組織展開
+  - 安全ルール3箇条：個人情報の入力禁止、回答の確認必須、AI出力の直接公開禁止
+  - データ管理設定の確認ポイント
 
   ## 質疑応答
 
-  質疑応答セッションでは、CLOVA Noteなど他のAIツールについても紹介しました。
+  CLOVA Noteなど他のAIツールについても紹介・議論。
 content_ko: |
   ## 개요
 
-  효고현 미키시의 요카와병원(의료법인사단 경명회)에서 전 직원 약 60~70명을 대상으로 1시간의 초청 강연을 진행했습니다. AI 경험이 없는 의료 종사자를 위해 ChatGPT의 기초부터 알기 쉽게 설명했습니다.
+  요카와병원(의료법인사단 경명회, 효고현 미키시)에서 전 직원 약 60~70명을 대상으로 약 1시간의 초청 강연을 진행. AI 미경험자가 바로 사용을 시작할 수 있는 기초부터, 병원 전체의 AI 도입·운용에 필요한 실무 측면까지 다루었습니다. 전편 일본어 진행.
 
-  ## 강연 내용
+  ## 내용
 
-  - **ChatGPT의 기본 개념과 사용법** — 대규모 언어 모델이란 무엇인가, 시작하는 방법
-  - **의료 현장에서의 활용 사례** — 진료 기록 요약, 환자 설명 자료 작성, 문헌 검색 보조
-  - **프롬프트 엔지니어링** — 효과적인 프롬프트 작성법
-  - **개인정보 보호 및 보안** — 환자 데이터 취급 시 주의사항, AI 도구에 입력하면 안 되는 정보
-  - **라이브 데모** — ChatGPT를 활용한 실전 시연
+  - ChatGPT의 기본 구조, 잘하는 것·못하는 것
+  - 화면 조작 라이브 데모 (로그인~입력~답변 확인)
+  - 프롬프트 작성법: 역할 지정, 목표+형식 명시, 조건 추가
+  - 부서별 활용 사례: 사무·총무(회의록, 메일, 원내 게시), 간호·진료(환자 설명문 평이화, 영어 문헌 요약, 학회 발표 구성), 교육·경영기획(연수 자료, 다국어 대응)
+  - 회의록·공지문을 여러 톤으로 동시 생성하는 라이브 데모
+  - 업무 프로세스 전체에서의 활용 포인트 (각 공정을 조금씩 가속하는 관점)
+  - 프로젝트 기능·커스텀 GPTs를 통한 조직 전개
+  - 안전 규칙 3개조: 개인정보 입력 금지, 답변 확인 필수, AI 출력 직접 공개 금지
+  - 데이터 관리 설정 확인 포인트
 
   ## 질의응답
 
-  질의응답 시간에는 CLOVA Note 등 추가 AI 도구에 대해서도 소개했습니다.
+  CLOVA Note 등 다른 AI 도구에 대해서도 소개·논의.
 links:
   - label: Hospital website
     url: https://yokawa-hp.or.jp
@@ -50,18 +58,20 @@ links:
 
 ## Overview
 
-A one-hour invited lecture for approximately 60–70 hospital staff members at Yokawa Hospital (医療法人社団 敬命会 吉川病院) in Miki, Hyogo. The talk introduced ChatGPT from the ground up for healthcare professionals with no prior AI experience.
+Invited lecture at Yokawa Hospital (医療法人社団 敬命会 吉川病院) in Miki, Hyogo, for approximately 60–70 staff members. Covered the basics for complete beginners through to practical considerations for hospital-wide AI adoption, in about one hour. Delivered in Japanese.
 
-## Topics Covered
+## Topics
 
-- **Basic concepts and usage of ChatGPT** — what large language models are and how to get started
-- **Healthcare applications** — summarizing medical records, drafting patient information materials, assisting literature searches
-- **Prompt engineering** — techniques for writing effective prompts to get useful responses
-- **Privacy and security** — handling sensitive patient data, what not to input into AI tools
-- **Live demonstration** — real-time ChatGPT demo showing practical use cases
+- How ChatGPT works, what it can and cannot do
+- Live demo of the interface (login, input, reviewing responses)
+- Prompt writing: assigning a role, specifying goal + format, adding conditions
+- Use cases by department: administration (meeting minutes, emails, internal notices), nursing/clinical (simplifying patient materials, summarizing English literature, structuring conference presentations), education/planning (training materials, multilingual support)
+- Live demo generating meeting minutes and announcements in multiple tones
+- Where AI fits in the overall workflow (speeding up each step, not full automation)
+- Organizational deployment via Projects and Custom GPTs
+- 3 safety rules: no personal data input, mandatory response verification, no direct publication of AI output
+- Data management settings to review
 
 ## Q&A
 
-The session concluded with a Q&A segment in which additional AI tools such as CLOVA Note were also discussed.
-
-Delivered in Japanese.
+Also discussed other AI tools including CLOVA Note.
