@@ -5,6 +5,7 @@ venue: "CBI Society Annual Meeting 2025 (Oral)"
 presenter: Seungeon Lee
 type: talk
 format: oral
+image: /assets/img/talks/cbi2025-oral.png
 links:
   - label: Oral list (EN)
     url: https://cbi-society.org/taikai/taikai25/abstract_oral_list_e.html

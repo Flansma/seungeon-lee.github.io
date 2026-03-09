@@ -227,6 +227,7 @@ extra_head: |
         <a class="section-link" href="{{ href }}" {% if href != '#' %}target="_blank" rel="noopener"{% else %}style="pointer-events:none"{% endif %}>
           <span class="section-title">{{ a.title }}</span>
           <span class="section-meta">{{ a.venue }} — {{ a.date | date: "%Y" }}</span>
+          {% if a.image %}<img class="biblio-thumb" src="{{ a.image | relative_url }}" alt="{{ a.title }}">{% endif %}
         </a>
       </li>
       {% endfor %}
