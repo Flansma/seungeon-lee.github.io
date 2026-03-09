@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<section class="talk-detail section">
+  <div class="container">
+    <a href="{{ site.baseurl }}/#bibliography" class="back-link">&larr; Back to Bibliography</a>
+
+    <h1 class="project-title">{{ page.title }}</h1>
+
+    <div class="project-meta">
+      <span class="project-date">{{ page.date | date: "%Y.%m.%d" }}</span>
+      {% if page.format %}<span class="badge badge-{{ page.format }}">{{ page.format | upcase }}</span>{% endif %}
+    </div>
+
+    <div class="talk-venue">{{ page.venue }}</div>
+
+    {% if page.image %}
+    <div class="talk-hero">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="project-content">
+      {{ content }}
+    </div>
+
+    {% if page.links %}
+    <div class="project-links">
+      {% for link in page.links %}
+      <a href="{{ link.url }}" class="btn" target="_blank" rel="noopener">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

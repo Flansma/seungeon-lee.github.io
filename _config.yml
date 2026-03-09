@@ -33,9 +33,10 @@ collections:
     sort_by: date
     order: descending
   talks:
-    output: false
+    output: true
     sort_by: date
     order: descending
+    permalink: /talks/:name/
   awards:
     output: false
     sort_by: date

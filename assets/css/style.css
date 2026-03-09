@@ -1288,6 +1288,26 @@ a.contact-item:hover {
 
 .project-links { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 
+/* ================================
+   Talk Detail Page
+   ================================ */
+/* ================================
+   Award Accordion
+   ================================ */
+.award-header { cursor: pointer; }
+.award-header:hover { opacity: 0.7; }
+.award-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.award-accordion.open .award-body { max-height: 600px; }
+.award-photo { width: 100%; max-width: 480px; border-radius: 8px; margin-top: 12px; }
+.award-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+/* ================================
+   Talk Detail Page
+   ================================ */
+.talk-venue { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+.talk-hero { margin-bottom: 32px; }
+.talk-hero img { width: 100%; max-width: 640px; border-radius: 8px; }
+
 .badge-active { color:#065f46; background:#d1fae5; border-color:#a7f3d0; }
 .badge-completed { color:#1f2937; background:#e5e7eb; border-color:#d1d5db; }
 .badge-archived { color:#6b7280; background:#f3f4f6; border-color:#e5e7eb; }

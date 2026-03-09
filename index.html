@@ -192,12 +192,8 @@ extra_head: |
     <h3 class="works-type"><span data-i18n="labels.presentations">PRESENTATIONS</span></h3>
     <ol class="biblio-list">
       {% for t in talks %}
-        {% assign href = '#' %}
-        {% if t.links and t.links.size > 0 %}
-          {% assign href = t.links[0].url %}
-        {% endif %}
         <li class="biblio-item">
-          <a class="biblio-link" href="{{ href }}" {% if href != '#' %}target="_blank" rel="noopener"{% else %}style="pointer-events:none"{% endif %}>
+          <a class="biblio-link" href="{{ t.url | relative_url }}">
             <span class="biblio-title">{{ t.title }}</span>
             <span class="biblio-meta">{{ t.venue }}. ({{ t.date | date: "%Y" }})
               {% if t.format %}<span class="badge badge-{{ t.format }}">{{ t.format | upcase }}</span>{% endif %}
@@ -219,16 +215,23 @@ extra_head: |
     <ul class="section-list">
       {% assign aws = site.awards | sort: 'date' | reverse %}
       {% for a in aws %}
-      {% assign href = '#' %}
-      {% if a.links and a.links.size > 0 %}
-        {% assign href = a.links[0].url %}
-      {% endif %}
-      <li class="section-item">
-        <a class="section-link" href="{{ href }}" {% if href != '#' %}target="_blank" rel="noopener"{% else %}style="pointer-events:none"{% endif %}>
+      <li class="section-item award-accordion">
+        <div class="award-header" onclick="this.parentElement.classList.toggle('open')">
           <span class="section-title">{{ a.title }}</span>
           <span class="section-meta">{{ a.venue }} — {{ a.date | date: "%Y" }}</span>
-          {% if a.image %}<img class="biblio-thumb" src="{{ a.image | relative_url }}" alt="{{ a.title }}">{% endif %}
-        </a>
+        </div>
+        {% if a.image or a.links %}
+        <div class="award-body">
+          {% if a.image %}<img class="award-photo" src="{{ a.image | relative_url }}" alt="{{ a.title }}">{% endif %}
+          {% if a.links %}
+          <div class="award-links">
+            {% for link in a.links %}
+            <a href="{{ link.url }}" class="btn" target="_blank" rel="noopener">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -329,7 +332,11 @@ extra_head: |
     <div class="news-feed">
       {% for it in items %}
         {% assign href = '#' %}
-        {% if it.doi %}
+        {% assign is_external = true %}
+        {% if it.type == 'talk' %}
+          {% assign href = it.url | relative_url %}
+          {% assign is_external = false %}
+        {% elsif it.doi %}
           {% assign href = 'https://doi.org/' | append: it.doi %}
         {% elsif it.link %}
           {% assign href = it.link %}
@@ -345,7 +352,7 @@ extra_head: |
           {% when 'award' %}{% assign type_label = 'AWARD' %}
           {% else %}{% assign type_label = 'UPDATE' %}
         {% endcase %}
-        <a class="news-item" href="{{ href }}" {% if href != '#' %}target="_blank" rel="noopener"{% else %}style="pointer-events:none"{% endif %}>
+        <a class="news-item" href="{{ href }}" {% if is_external and href != '#' %}target="_blank" rel="noopener"{% elsif href == '#' %}style="pointer-events:none"{% endif %}>
           <span class="date-badge">{{ it.date | date: "%Y.%m.%d" }}</span>
           <span class="type-badge type-{{ type }}">{{ type_label }}</span>
           <span class="news-title">{{ it.title }}</span>

@@ -1,4 +1,5 @@
 ---
+layout: talk
 title: "HELM-BERT: A Transformer for Medium-sized Peptide Property Prediction"
 date: 2025-10-01
 venue: "CBI Society Annual Meeting 2025 (Oral)"
@@ -16,3 +17,7 @@ links:
   - label: PDF
     url: https://cbi-society.org/taikai/taikai25/abstracts/Orallist_2025.pdf
 ---
+
+## Overview
+
+Oral presentation at the CBI Society Annual Meeting 2025 on HELM-BERT, a transformer-based language model designed for medium-sized peptide property prediction using HELM notation. This presentation received the **Oral Presentation Award**.
