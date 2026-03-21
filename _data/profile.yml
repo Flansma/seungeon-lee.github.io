@@ -1,0 +1,29 @@
+name:
+  display: "LEE SEUNGEON"
+  kanji: "李 昇彦"
+  full: "Seungeon Lee"
+
+affiliation:
+  url: "https://clinfo.med.kyoto-u.ac.jp/"
+  lines:
+    - en: "Graduate School of Medicine, Kyoto University"
+      ja: "京都大学 大学院医学研究科"
+      ko: "교토대학교 의학연구과"
+    - en: "Big Data Medical Science, Okuno Laboratory"
+      ja: "人間健康科学系専攻 ビッグデータ医科学分野"
+      ko: "빅데이터의과학 분야, 오쿠노 연구실"
+
+title:
+  en: "Graduate Student / Researcher"
+  ja: "修士課程 / 研究員"
+  ko: "석사과정 / 연구원"
+
+email: "lee.seungeon.62y@st.kyoto-u.ac.jp"
+
+social:
+  - platform: linkedin
+    label: LinkedIn
+    url: "https://www.linkedin.com/in/seungeon-lee-300440376/"
+  - platform: x
+    label: "@flansma"
+    url: "https://x.com/flansma"

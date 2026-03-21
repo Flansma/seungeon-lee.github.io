@@ -1,13 +1,14 @@
 <header class="header">
   <div class="container">
     <!-- Left: Logo + Affiliation -->
+    {% assign aff = site.data.profile.affiliation %}
     <div class="header-brand">
-      <a href="https://clinfo.med.kyoto-u.ac.jp" class="header-logo" target="_blank" rel="noopener" aria-label="Okuno Laboratory website">
+      <a href="{{ aff.url }}" class="header-logo" target="_blank" rel="noopener" aria-label="Okuno Laboratory website">
         <img src="{{ site.baseurl }}/assets/img/E-W.png" alt="Okuno Lab">
       </a>
       <div class="header-affiliation">
-        <span class="affiliation-line1">京都大学 大学院医学研究科</span>
-        <span class="affiliation-line2">人間健康科学系専攻 ビッグデータ医科学分野</span>
+        <span class="affiliation-line1" data-lang-en="{{ aff.lines[0].en }}" data-lang-ja="{{ aff.lines[0].ja }}" data-lang-ko="{{ aff.lines[0].ko }}">{{ aff.lines[0].ja }}</span>
+        <span class="affiliation-line2" data-lang-en="{{ aff.lines[1].en }}" data-lang-ja="{{ aff.lines[1].ja }}" data-lang-ko="{{ aff.lines[1].ko }}">{{ aff.lines[1].ja }}</span>
       </div>
     </div>
 

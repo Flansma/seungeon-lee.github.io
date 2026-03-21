@@ -3,23 +3,21 @@ layout: default
 title: "Seungeon Lee | Portfolio"
 description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide drug discovery"
 extra_head: |
+  {% assign prof = site.data.profile %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Seungeon Lee",
-    "alternateName": ["李 昇彦", "LEE SEUNGEON"],
+    "name": "{{ prof.name.full }}",
+    "alternateName": ["{{ prof.name.kanji }}", "{{ prof.name.display }}"],
     "affiliation": {
       "@type": "Organization",
-      "name": "Kyoto University, Graduate School of Medicine, Okuno Laboratory",
-      "url": "https://clinfo.med.kyoto-u.ac.jp/"
+      "name": "{{ prof.affiliation.lines[0].en }}, {{ prof.affiliation.lines[1].en }}",
+      "url": "{{ prof.affiliation.url }}"
     },
-    "email": "mailto:lee.seungeon.62y@st.kyoto-u.ac.jp",
-    "jobTitle": "Graduate Student / Researcher",
-    "sameAs": [
-      "https://www.linkedin.com/in/seungeon-lee-300440376/",
-      "https://x.com/flansma"
-    ]
+    "email": "mailto:{{ prof.email }}",
+    "jobTitle": "{{ prof.title.en }}",
+    "sameAs": [{% for s in prof.social %}"{{ s.url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
   }
   </script>
 ---
@@ -41,11 +39,13 @@ extra_head: |
       <div class="profile-img">
         <img src="{{ site.baseurl }}/assets/img/face.png" alt="Seungeon Lee">
       </div>
+      {% assign prof = site.data.profile %}
+      {% assign aff = prof.affiliation %}
       <div class="profile-body">
         <p class="profile-affiliation">
-          <strong>LEE SEUNGEON</strong> &nbsp;/&nbsp; 李 昇彦<br>
-          Graduate School of Medicine, Kyoto University<br>
-          Big Data Medical Science, Okuno Laboratory
+          <strong>{{ prof.name.display }}</strong> &nbsp;/&nbsp; {{ prof.name.kanji }}<br>
+          <span data-lang-en="{{ aff.lines[0].en }}" data-lang-ja="{{ aff.lines[0].ja }}" data-lang-ko="{{ aff.lines[0].ko }}">{{ aff.lines[0].en }}</span><br>
+          <span data-lang-en="{{ aff.lines[1].en }}" data-lang-ja="{{ aff.lines[1].ja }}" data-lang-ko="{{ aff.lines[1].ko }}">{{ aff.lines[1].en }}</span>
         </p>
         <p class="profile-keywords" data-i18n="about.keywords">AI Drug Discovery / Cheminformatics / Medium-sized Peptides / Machine Learning</p>
         <p data-i18n-html="about.body">
@@ -332,53 +332,17 @@ extra_head: |
   <div class="container">
     <h2 class="title" data-i18n="nav.skill">SKILL</h2>
     <div class="skill-list">
+      {% for s in site.data.skills %}
       <div class="skill-item">
         <div class="skill-icon">
-          <span class="material-icons-outlined">code</span>
+          <span class="material-icons-outlined">{{ s.icon }}</span>
         </div>
         <div class="skill-body">
-          <h3 class="skill-name">Python</h3>
-          <p class="skill-text">
-            Research experience with Python programming<br>
-            Deep learning implementation with PyTorch
-          </p>
+          <h3 class="skill-name">{{ s.name }}</h3>
+          <p class="skill-text">{{ s.lines | join: '<br>' }}</p>
         </div>
       </div>
-      <div class="skill-item">
-        <div class="skill-icon">
-          <span class="material-icons-outlined">psychology</span>
-        </div>
-        <div class="skill-body">
-          <h3 class="skill-name">Machine Learning</h3>
-          <p class="skill-text">
-            Transformer-based language models<br>
-            Peptide property prediction & federated learning
-          </p>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-icon">
-          <span class="material-icons-outlined">language</span>
-        </div>
-        <div class="skill-body">
-          <h3 class="skill-name">English</h3>
-          <p class="skill-text">
-            TOEIC 880
-          </p>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-icon">
-          <span class="material-icons-outlined">biotech</span>
-        </div>
-        <div class="skill-body">
-          <h3 class="skill-name">Cheminformatics</h3>
-          <p class="skill-text">
-            HELM notation for peptide representation<br>
-            Compound-protein interaction modeling
-          </p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -390,17 +354,16 @@ extra_head: |
     <p class="lead">
       Feel free to reach out via SNS or email.
     </p>
+    {% assign prof = site.data.profile %}
     <div class="contact-list">
-      <a class="contact-item" href="https://www.linkedin.com/in/seungeon-lee-300440376/" target="_blank" rel="noopener">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        LinkedIn
+      {% for s in prof.social %}
+      <a class="contact-item" href="{{ s.url }}" target="_blank" rel="noopener">
+        {% include social-icon.html platform=s.platform %}
+        {{ s.label }}
       </a>
-      <a class="contact-item" href="https://x.com/flansma" target="_blank" rel="noopener">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        @flansma
-      </a>
+      {% endfor %}
       <span class="contact-item contact-email-item">
-        <span class="material-icons-outlined">mail</span> lee.seungeon.62y[at]st.kyoto-u.ac.jp
+        <span class="material-icons-outlined">mail</span> {{ prof.email | replace: '@', '[at]' }}
       </span>
     </div>
   </div>

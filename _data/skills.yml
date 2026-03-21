@@ -1,0 +1,22 @@
+- name: Python
+  icon: code
+  lines:
+    - "Research experience with Python programming"
+    - "Deep learning implementation with PyTorch"
+
+- name: Machine Learning
+  icon: psychology
+  lines:
+    - "Transformer-based language models"
+    - "Peptide property prediction & federated learning"
+
+- name: English
+  icon: language
+  lines:
+    - "TOEIC 880"
+
+- name: Cheminformatics
+  icon: biotech
+  lines:
+    - "HELM notation for peptide representation"
+    - "Compound-protein interaction modeling"
