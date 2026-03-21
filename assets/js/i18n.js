@@ -75,12 +75,15 @@ window.applyI18n = function(lang) {
   });
   // Update active state
   document.querySelectorAll('.lang-switch [data-lang]').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    var isActive = btn.getAttribute('data-lang') === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive);
   });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   let lang = 'en';
   try { lang = localStorage.getItem('lang') || 'en'; } catch(e) {}
+  if (!window.I18N[lang]) lang = 'en';
   applyI18n(lang);
 });

@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Left: Logo + Affiliation -->
     <div class="header-brand">
-      <a href="https://clinfo.med.kyoto-u.ac.jp" class="header-logo" target="_blank" rel="noopener">
+      <a href="https://clinfo.med.kyoto-u.ac.jp" class="header-logo" target="_blank" rel="noopener" aria-label="Okuno Laboratory website">
         <img src="{{ site.baseurl }}/assets/img/E-W.png" alt="Okuno Lab">
       </a>
       <div class="header-affiliation">
@@ -21,19 +21,19 @@
         <li class="gnav-item"><a href="#skill">SKILL</a></li>
         <li class="gnav-item"><a href="#contact">CONTACT</a></li>
       </ul>
-      <div class="gnav-lang-switch lang-switch">
-        <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
-        <button type="button" data-lang="ja" onclick="setLang('ja')">JA</button>
-        <button type="button" data-lang="ko" onclick="setLang('ko')">KO</button>
+      <div class="gnav-lang-switch lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-label="English" onclick="setLang('en')">EN</button>
+        <button type="button" data-lang="ja" aria-label="日本語" onclick="setLang('ja')">JA</button>
+        <button type="button" data-lang="ko" aria-label="한국어" onclick="setLang('ko')">KO</button>
       </div>
     </nav>
 
     <!-- Right: Lang + Theme + Menu -->
     <div class="header-actions">
-      <div class="lang-switch">
-        <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
-        <button type="button" data-lang="ja" onclick="setLang('ja')">JA</button>
-        <button type="button" data-lang="ko" onclick="setLang('ko')">KO</button>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-label="English" onclick="setLang('en')">EN</button>
+        <button type="button" data-lang="ja" aria-label="日本語" onclick="setLang('ja')">JA</button>
+        <button type="button" data-lang="ko" aria-label="한국어" onclick="setLang('ko')">KO</button>
       </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <span class="material-icons-outlined icon-light">light_mode</span>
