@@ -9,4 +9,18 @@ layout: null
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% for talk in site.talks %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ talk.url }}</loc>
+    <lastmod>{{ talk.date | date_to_xmlschema }}</lastmod>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
+  {% for project in site.projects %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ project.url }}</loc>
+    <lastmod>{{ project.date | date_to_xmlschema }}</lastmod>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
 </urlset>
