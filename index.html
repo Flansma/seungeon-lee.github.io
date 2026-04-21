@@ -87,8 +87,8 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
       <div class="timeline-item">
         <div class="timeline-date">{{ b.period }}</div>
         <div class="timeline-content">
-          <h3>{{ b.role }}</h3>
-          <p>{{ b.org }}{% if b.unit %}, {{ b.unit }}{% endif %}</p>
+          <h3 {% if b.role_ja or b.role_ko %}data-lang-en="{{ b.role | escape }}" {% if b.role_ja %}data-lang-ja="{{ b.role_ja | escape }}"{% endif %} {% if b.role_ko %}data-lang-ko="{{ b.role_ko | escape }}"{% endif %}{% endif %}>{{ b.role }}</h3>
+          <p><span {% if b.org_ja or b.org_ko %}data-lang-en="{{ b.org | escape }}" {% if b.org_ja %}data-lang-ja="{{ b.org_ja | escape }}"{% endif %} {% if b.org_ko %}data-lang-ko="{{ b.org_ko | escape }}"{% endif %}{% endif %}>{{ b.org }}</span>{% if b.unit %}, <span {% if b.unit_ja or b.unit_ko %}data-lang-en="{{ b.unit | escape }}" {% if b.unit_ja %}data-lang-ja="{{ b.unit_ja | escape }}"{% endif %} {% if b.unit_ko %}data-lang-ko="{{ b.unit_ko | escape }}"{% endif %}{% endif %}>{{ b.unit }}</span>{% endif %}</p>
         </div>
       </div>
       {% endfor %}
