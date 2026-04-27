@@ -8,6 +8,9 @@ authors: "Seungeon Lee, Takuto Koyama, Itsuki Maeda, Atsuyuki Matsumoto, Yasushi
 affiliation: "Kyoto University Graduate School of Medicine, Department of Biomedical Data Intelligence"
 type: talk
 format: oral
+arxiv_id: "2512.23175"
+conference_title: "CBI Society Annual Meeting 2025"
+description: "Oral presentation (Award winner) at CBI 2025 introducing HELM-BERT, a transformer for medium-sized peptide property prediction using HELM notation."
 image: /assets/img/talks/cbi2025-oral.png
 links:
   - label: Oral list (EN)

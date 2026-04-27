@@ -1,12 +1,28 @@
-{% assign prof = site.data.profile %}
+{%- assign prof = site.data.profile -%}
 {%- assign _start = page.date | date_to_xmlschema -%}
 {%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+{%- assign _description = page.description -%}
+{%- if _description == nil or _description == '' -%}
+  {%- capture _description -%}{{ page.title }} — Talk by {{ page.presenter | default: prof.name.full }} at {{ page.venue }} ({{ page.date | date: "%Y-%m-%d" }}).{%- endcapture -%}
+{%- endif -%}
+{%- comment -%} Build authors list from front matter {%- endcomment -%}
+{%- assign _authors = '' | split: '' -%}
+{%- if page.authors -%}
+  {%- if page.authors.first -%}
+    {%- assign _authors = page.authors -%}
+  {%- else -%}
+    {%- assign _authors = page.authors | split: ', ' -%}
+  {%- endif -%}
+{%- elsif page.presenter -%}
+  {%- assign _authors = page.presenter | split: ', ' -%}
+{%- endif -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": {{ page.title | jsonify }},
   "startDate": "{{ _start }}",
+  "endDate": "{{ _start }}",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
   "location": {
@@ -15,6 +31,7 @@
   },
   "performer": {
     "@type": "Person",
+    "@id": "{{ '/#person' | absolute_url }}",
     "name": {{ page.presenter | default: prof.name.full | jsonify }}
   },
   "organizer": {
@@ -23,6 +40,19 @@
   },
   "image": "{{ _img }}",
   "url": "{{ page.url | absolute_url }}",
-  "description": {{ page_description | jsonify }}
+  "description": {{ _description | jsonify }}{% if _authors.size > 0 %},
+  "workPerformed": {
+    "@type": "ScholarlyArticle",
+    "name": {{ page.title | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": [{% for a in _authors %}{
+      "@type": "Person",
+      "name": {{ a | jsonify }}
+    }{% unless forloop.last %}, {% endunless %}{% endfor %}]{% if page.affiliation %},
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ page.affiliation | jsonify }}
+    }{% endif %}
+  }{% endif %}
 }
 </script>
