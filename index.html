@@ -18,7 +18,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
     <h2 class="title" data-i18n="nav.about">ABOUT</h2>
     <div class="profile">
       <div class="profile-img">
-        <img src="{{ site.baseurl }}/assets/img/face.png" alt="Seungeon Lee">
+        <img src="{{ site.baseurl }}/assets/img/face.png" alt="Seungeon Lee" width="1568" height="2409" loading="eager" fetchpriority="high" decoding="async">
       </div>
       {% assign prof = site.data.profile %}
       {% assign aff = prof.affiliation %}
@@ -137,7 +137,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
             <span class="biblio-meta" {% if t.venue_ja or t.venue_ko %}data-lang-en="{{ t.venue | escape }}" {% if t.venue_ja %}data-lang-ja="{{ t.venue_ja | escape }}"{% endif %} {% if t.venue_ko %}data-lang-ko="{{ t.venue_ko | escape }}"{% endif %}{% endif %}>{{ t.venue }}. ({{ t.date | date: "%Y" }})
               {% if t.format %}<span class="badge badge-{{ t.format }}">{{ t.format | upcase }}</span>{% endif %}
             </span>
-            {% if t.image %}<img class="biblio-thumb" src="{{ t.image | relative_url }}" alt="{{ t.title }}">{% endif %}
+            {% if t.image %}<img class="biblio-thumb" src="{{ t.image | relative_url }}" alt="{{ t.title }}" loading="lazy" decoding="async">{% endif %}
           </a>
         </li>
       {% endfor %}
@@ -161,7 +161,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
         </div>
         {% if a.image or a.links %}
         <div class="award-body">
-          {% if a.image %}<img class="award-photo" src="{{ a.image | relative_url }}" alt="{{ a.title }}">{% endif %}
+          {% if a.image %}<img class="award-photo" src="{{ a.image | relative_url }}" alt="{{ a.title }}" loading="lazy" decoding="async">{% endif %}
           {% if a.links %}
           <div class="award-links">
             {% for link in a.links %}
