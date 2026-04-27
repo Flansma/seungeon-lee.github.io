@@ -8,6 +8,12 @@
 {%- elsif page.layout == 'project' -%}
   {%- assign _section_name = 'Projects' -%}
   {%- assign _section_url = '/#projects' | absolute_url -%}
+{%- elsif page.layout == 'publication' -%}
+  {%- assign _section_name = 'Publications' -%}
+  {%- assign _section_url = '/#bibliography' | absolute_url -%}
+{%- elsif page.layout == 'preprint' -%}
+  {%- assign _section_name = 'Preprints' -%}
+  {%- assign _section_url = '/#bibliography' | absolute_url -%}
 {%- else -%}
   {%- assign _section_name = '' -%}
 {%- endif -%}

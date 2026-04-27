@@ -1,0 +1,46 @@
+{%- assign prof = site.data.profile -%}
+{%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+{%- assign _authors = '' | split: '' -%}
+{%- if page.authors -%}
+  {%- if page.authors.first -%}
+    {%- assign _authors = page.authors -%}
+  {%- else -%}
+    {%- assign _authors = page.authors | split: ', ' -%}
+  {%- endif -%}
+{%- endif -%}
+{%- comment -%} Auto-detect arXiv id from page.link when not explicit {%- endcomment -%}
+{%- assign _arxiv_id = page.arxiv_id -%}
+{%- if _arxiv_id == nil and page.link contains 'arxiv.org/abs/' -%}
+  {%- assign _arxiv_id = page.link | split: 'arxiv.org/abs/' | last | split: '?' | first -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "{{ page.url | absolute_url }}#article",
+  "name": {{ page.title | jsonify }},
+  "headline": {{ page.title | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ _img }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "inLanguage": "en",
+  "creativeWorkStatus": "Preprint",
+  "publishingPrinciples": "https://arxiv.org/help/general"{% if _authors.size > 0 %},
+  "author": [{% for a in _authors %}{
+    "@type": "Person",
+    "name": {{ a | jsonify }}{% if a == prof.name.full %},
+    "@id": "{{ '/#person' | absolute_url }}"{% endif %}
+  }{% unless forloop.last %}, {% endunless %}{% endfor %}]{% endif %}{% if page.venue %},
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ page.venue | jsonify }}
+  }{% endif %}{% if _arxiv_id %},
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "arXiv",
+    "value": {{ _arxiv_id | jsonify }},
+    "url": "https://arxiv.org/abs/{{ _arxiv_id }}"
+  },
+  "sameAs": ["https://arxiv.org/abs/{{ _arxiv_id }}"]{% endif %}
+}
+</script>

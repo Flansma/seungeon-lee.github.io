@@ -9,4 +9,10 @@
 {% elsif page.layout == 'project' %}
   {% include jsonld/project.html %}
   {% include jsonld/breadcrumb.html %}
+{% elsif page.layout == 'publication' %}
+  {% include jsonld/publication.html %}
+  {% include jsonld/breadcrumb.html %}
+{% elsif page.layout == 'preprint' %}
+  {% include jsonld/preprint.html %}
+  {% include jsonld/breadcrumb.html %}
 {% endif %}

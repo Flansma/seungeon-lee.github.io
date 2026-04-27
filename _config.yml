@@ -25,13 +25,23 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
-# Default layout
+# Default layouts per scope
 defaults:
   - scope:
       path: ""
     values:
       layout: default
       image: /assets/img/face.png
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: publication
+  - scope:
+      path: ""
+      type: preprints
+    values:
+      layout: preprint
 
 # Prevent macOS metadata from being processed
 exclude:
@@ -46,13 +56,15 @@ exclude:
 # Collections for itemized content
 collections:
   publications:
-    output: false
+    output: true
     sort_by: date
     order: descending
+    permalink: /publications/:name/
   preprints:
-    output: false
+    output: true
     sort_by: date
     order: descending
+    permalink: /preprints/:name/
   talks:
     output: true
     sort_by: date

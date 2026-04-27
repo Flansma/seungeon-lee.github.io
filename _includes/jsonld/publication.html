@@ -1,0 +1,51 @@
+{%- assign prof = site.data.profile -%}
+{%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+{%- comment -%} Build authors list {%- endcomment -%}
+{%- assign _authors = '' | split: '' -%}
+{%- if page.authors -%}
+  {%- if page.authors.first -%}
+    {%- assign _authors = page.authors -%}
+  {%- else -%}
+    {%- assign _authors = page.authors | split: ', ' -%}
+  {%- endif -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "{{ page.url | absolute_url }}#article",
+  "name": {{ page.title | jsonify }},
+  "headline": {{ page.title | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ _img }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "inLanguage": "en"{% if _authors.size > 0 %},
+  "author": [{% for a in _authors %}{
+    "@type": "Person",
+    "name": {{ a | jsonify }}{% if a == prof.name.full %},
+    "@id": "{{ '/#person' | absolute_url }}"{% endif %}
+  }{% unless forloop.last %}, {% endunless %}{% endfor %}]{% endif %}{% if page.venue %},
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": {{ page.venue | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ page.venue | jsonify }}
+  }{% endif %}{% if page.doi %},
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "DOI",
+      "value": {{ page.doi | jsonify }},
+      "url": "https://doi.org/{{ page.doi }}"
+    }
+  ],
+  "sameAs": [
+    "https://doi.org/{{ page.doi }}"{% if page.pubmed %},
+    {{ page.pubmed | jsonify }}{% endif %}{% if page.pmc %},
+    {{ page.pmc | jsonify }}{% endif %}
+  ]{% endif %}{% if page.status %},
+  "creativeWorkStatus": {{ page.status | jsonify }}{% endif %}
+}
+</script>
