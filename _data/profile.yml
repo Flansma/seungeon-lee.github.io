@@ -2,6 +2,10 @@ name:
   display: "LEE SEUNGEON"
   kanji: "李 昇彦"
   full: "Seungeon Lee"
+  given: "Seungeon"
+  family: "Lee"
+
+orcid: "0009-0003-3232-1386"
 
 affiliation:
   url: "https://clinfo.med.kyoto-u.ac.jp/"
@@ -16,6 +20,14 @@ affiliation:
     - en: "Big Data Medical Science, Okuno Laboratory"
       ja: "人間健康科学系専攻 ビッグデータ医科学分野"
       ko: "빅데이터의과학 분야, 오쿠노 연구실"
+  ror: "https://ror.org/02kpeqv85"
+  wikidata: "https://www.wikidata.org/wiki/Q156844"
+
+alma_mater:
+  name: "Kwansei Gakuin University"
+  department: "School of Science and Technology, Department of Bioscience (Miura Laboratory)"
+  ror: "https://ror.org/01w19j841"
+  wikidata: "https://www.wikidata.org/wiki/Q1149908"
 
 title:
   en: "Graduate Student / Researcher"
@@ -24,7 +36,29 @@ title:
 
 email: "lee.seungeon.62y@st.kyoto-u.ac.jp"
 
+knows_about:
+  - "Artificial Intelligence"
+  - "Drug Discovery"
+  - "Peptide Language Models"
+  - "Cheminformatics"
+  - "Deep Learning"
+  - "Natural Language Processing"
+  - "Compound-Protein Interaction"
+
+# All identifiers — used for Person sameAs and identity disambiguation.
 social:
+  - platform: orcid
+    label: ORCID
+    url: "https://orcid.org/0009-0003-3232-1386"
+  - platform: scholar
+    label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=WJzH9dQAAAAJ"
+  - platform: researchgate
+    label: ResearchGate
+    url: "https://www.researchgate.net/profile/Seungeon-Lee-6"
+  - platform: github
+    label: GitHub
+    url: "https://github.com/Flansma"
   - platform: linkedin
     label: LinkedIn
     url: "https://www.linkedin.com/in/seungeon-lee-300440376/"

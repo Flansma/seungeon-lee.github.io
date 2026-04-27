@@ -1,19 +1,51 @@
-{% assign prof = site.data.profile %}
+{%- assign prof = site.data.profile -%}
+{%- assign awards = site.awards | sort: 'date' | reverse -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "{{ '/#person' | absolute_url }}",
   "name": {{ prof.name.full | jsonify }},
+  "givenName": {{ prof.name.given | jsonify }},
+  "familyName": {{ prof.name.family | jsonify }},
   "alternateName": [{{ prof.name.kanji | jsonify }}, {{ prof.name.display | jsonify }}],
   "image": "{{ '/assets/img/face.png' | absolute_url }}",
   "url": "{{ '/' | absolute_url }}",
-  "affiliation": {
-    "@type": "Organization",
-    "name": {{ prof.affiliation.lines[0].en | append: ', ' | append: prof.affiliation.lines[1].en | jsonify }},
-    "url": {{ prof.affiliation.url | jsonify }}
-  },
   "email": "mailto:{{ prof.email }}",
   "jobTitle": {{ prof.title.en | jsonify }},
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": {{ prof.orcid | jsonify }},
+    "url": "https://orcid.org/{{ prof.orcid }}"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": {{ prof.affiliation.lines[0].en | jsonify }},
+    "department": {{ prof.affiliation.lines[1].en | jsonify }},
+    "url": {{ prof.affiliation.url | jsonify }},
+    "sameAs": [{{ prof.affiliation.ror | jsonify }}, {{ prof.affiliation.wikidata | jsonify }}]
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": {{ prof.alma_mater.name | jsonify }},
+    "department": {{ prof.alma_mater.department | jsonify }},
+    "sameAs": [{{ prof.alma_mater.ror | jsonify }}, {{ prof.alma_mater.wikidata | jsonify }}]
+  },
+  "knowsAbout": [{% for k in prof.knows_about %}{{ k | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]{% if awards.size > 0 %},
+  "award": [{% for a in awards %}{{ a.title | append: ' — ' | append: a.venue | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]{% endif %},
   "sameAs": [{% for s in prof.social %}{{ s.url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "{{ '/#website' | absolute_url }}",
+  "url": "{{ '/' | absolute_url }}",
+  "name": {{ site.title | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "inLanguage": ["en", "ja", "ko"],
+  "publisher": { "@id": "{{ '/#person' | absolute_url }}" }
 }
 </script>
