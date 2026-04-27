@@ -1,5 +1,4 @@
 ---
-layout: project
 title: "HELM-BERT: Peptide Language Model"
 date: 2025-01-01
 status: active

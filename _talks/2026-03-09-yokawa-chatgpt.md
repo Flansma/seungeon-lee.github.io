@@ -1,5 +1,4 @@
 ---
-layout: talk
 title: "ゼロからわかるChatGPT — Practical AI Adoption for Healthcare Teams"
 title_ja: "ゼロからわかるChatGPT — 医療現場のためのAI導入実践"
 title_ko: "ゼロからわかるChatGPT — 의료 현장을 위한 AI 도입 실전"

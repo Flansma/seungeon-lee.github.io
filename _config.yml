@@ -25,13 +25,24 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
-# Default layouts per scope
+# Default layouts per scope — auto-applies layout based on collection type.
+# This means new content files don't need a `layout:` line in their front matter.
 defaults:
   - scope:
       path: ""
     values:
       layout: default
       image: /assets/img/face.png
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
   - scope:
       path: ""
       type: publications

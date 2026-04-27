@@ -1,20 +1,36 @@
 ---
-# Location: _projects/slug.md (no date prefix needed)
-# Only type that generates its own page
-layout: project
+# Location: _projects/slug.md
+# Auto-generates: /projects/<slug>/ page, multi-type SoftwareSourceCode + ResearchProject
+# JSON-LD (when GitHub/GitLab/HuggingFace link is present), breadcrumb, sitemap, feed.
+# layout is auto-set via _config.yml defaults.
+
+# --- Required ---
 title: "Project Name"
 date: YYYY-MM-DD
-status: active              # active / completed
+description: "One-line summary used as meta description and JSON-LD description."
+
+# --- Recommended ---
+status: active                # active / completed (drives badge)
 tags:
-  - Tag1
-  - Tag2
-description: "One-line description."
+  - Deep Learning
+  - NLP
+
+# --- Optional ---
+# featured: true              # show in SELECTED on homepage
+# image: /assets/img/projects/filename.jpg
+# programming_language: Python  # → JSON-LD programmingLanguage
+# funder: "JSPS KAKENHI ..."  # → JSON-LD funder.name
+
+# --- Optional: links ---
+# Github/GitLab/HuggingFace URLs auto-trigger SoftwareSourceCode @type
+# arXiv/DOI URLs auto-trigger subjectOf: ScholarlyArticle linkage
 # links:
 #   - label: GitHub
 #     url: https://github.com/...
-#   - label: Paper
-#     url: https://...
-# featured: true
+#   - label: Paper (arXiv)
+#     url: https://arxiv.org/abs/...
+#   - label: HuggingFace
+#     url: https://huggingface.co/...
 ---
 
 ## Overview

@@ -1,15 +1,47 @@
 ---
 # Location: _talks/YYYY-MM-DD-slug.md
+# Auto-generates: /talks/<slug>/ page, Event + ScholarlyArticle JSON-LD,
+# citation_* meta (Google Scholar), article:* OG, breadcrumb, sitemap entry, feed entry.
+# layout is auto-set via _config.yml defaults — do NOT add `layout:` here.
+
+# --- Required ---
 title: "Talk Title"
 date: YYYY-MM-DD
-venue: "Event / Venue (Oral/Invited)"
+venue: "Event / Venue (Oral / Invited / Poster)"
 presenter: Seungeon Lee
 type: talk
-format: oral                # oral (blue) / invited (purple) / poster (orange)
-# image: /assets/img/talks/filename.jpg   # place photo in assets/img/talks/ first
-# abstract: >
-#   Description of the talk...
+
+# --- Recommended ---
+format: oral                  # oral / invited / poster (drives badge color)
+description: "Short summary used as meta description and social preview."
+
+# --- Optional: enables Scholar indexing & richer JSON-LD ---
+# authors:                    # If multi-author, fills citation_author and ScholarlyArticle.author[]
+#   - Seungeon Lee
+#   - Co-author Name
+# affiliation: "Kyoto University Graduate School of Medicine, ..."
+# conference_title: "CBI Society Annual Meeting 2025"   # Defaults to venue if omitted
+# arxiv_id: "2512.23175"      # → citation_arxiv_id
+# doi: "10.xxxx/yyy"          # → citation_doi
+# pdf_url: https://...        # → citation_pdf_url (auto-detected from links if any link ends in .pdf)
+# image: /assets/img/talks/filename.jpg   # og:image override (place photo in assets/img/talks/ first)
+
+# --- Multilingual (used by current JS i18n; preserved for future static i18n) ---
+# title_ja: "..."
+# title_ko: "..."
+# venue_ja: "..."
+# venue_ko: "..."
+# content_ja: |
+#   ## 概要
+# content_ko: |
+#   ## 개요
+
+# --- Optional: external links shown as buttons on detail page ---
 # links:
-#   - label: Link Text
+#   - label: Abstract
+#     url: https://...
+#   - label: PDF
 #     url: https://...
 ---
+
+Body content in Markdown (rendered on the detail page).
