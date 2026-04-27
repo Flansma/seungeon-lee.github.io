@@ -3,7 +3,7 @@ layout: default
 ---
 <section class="talk-detail section">
   <div class="container">
-    <a href="{{ site.baseurl }}/#bibliography" class="back-link" aria-label="Back to Bibliography" data-lang-en="&larr; Back to Bibliography" data-lang-ja="&larr; Bibliographyに戻る" data-lang-ko="&larr; Bibliography로 돌아가기">&larr; Back to Bibliography</a>
+    <a href="{{ '/#bibliography' | relative_url }}" class="back-link" aria-label="Back to Bibliography" data-lang-en="&larr; Back to Bibliography" data-lang-ja="&larr; Bibliographyに戻る" data-lang-ko="&larr; Bibliography로 돌아가기">&larr; Back to Bibliography</a>
 
     <h1 class="project-title" {% if page.title_ja or page.title_ko %}data-lang-en="{{ page.title | escape }}" {% if page.title_ja %}data-lang-ja="{{ page.title_ja | escape }}"{% endif %} {% if page.title_ko %}data-lang-ko="{{ page.title_ko | escape }}"{% endif %}{% endif %}>{{ page.title }}</h1>
 

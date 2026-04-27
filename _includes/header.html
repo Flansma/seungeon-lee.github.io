@@ -4,7 +4,7 @@
     {% assign aff = site.data.profile.affiliation %}
     <div class="header-brand">
       <a href="{{ aff.url }}" class="header-logo" target="_blank" rel="noopener" aria-label="Okuno Laboratory website">
-        <img src="{{ site.baseurl }}/assets/img/E-W.png" alt="Okuno Lab" width="500" height="500" loading="lazy" decoding="async">
+        <img src="{{ '/assets/img/E-W.png' | relative_url }}" alt="Okuno Lab" width="500" height="500" loading="lazy" decoding="async">
       </a>
       <div class="header-affiliation">
         <span class="affiliation-short" data-lang-en="{{ aff.short.en }}" data-lang-ja="{{ aff.short.ja }}" data-lang-ko="{{ aff.short.ko }}">{{ aff.short.ja }}</span>

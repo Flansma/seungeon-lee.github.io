@@ -3,7 +3,6 @@
 
 <head>
   {% include head.html %}
-  {% if page.extra_head %}{{ page.extra_head }}{% endif %}
 </head>
 
 <body>
@@ -24,8 +23,7 @@
 
   </div>
 
-  <script src="{{ site.baseurl }}/assets/js/script.js"></script>
-  {% if page.extra_js %}{{ page.extra_js }}{% endif %}
+  <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>
