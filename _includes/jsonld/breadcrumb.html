@@ -1,0 +1,41 @@
+{%- comment -%}
+  Generic breadcrumb: Home › <Section> › <Page Title>
+  Section is derived from layout (talk → "Talks", project → "Projects").
+{%- endcomment -%}
+{%- if page.layout == 'talk' -%}
+  {%- assign _section_name = 'Talks' -%}
+  {%- assign _section_url = '/#bibliography' | absolute_url -%}
+{%- elsif page.layout == 'project' -%}
+  {%- assign _section_name = 'Projects' -%}
+  {%- assign _section_url = '/#projects' | absolute_url -%}
+{%- else -%}
+  {%- assign _section_name = '' -%}
+{%- endif -%}
+{%- if _section_name != '' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ '/' | absolute_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ _section_name }}",
+      "item": "{{ _section_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | absolute_url }}"
+    }
+  ]
+}
+</script>
+{%- endif -%}

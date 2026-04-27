@@ -1,0 +1,33 @@
+{% assign prof = site.data.profile %}
+{%- comment -%} Detect if project has a code repository link → use SoftwareSourceCode {%- endcomment -%}
+{%- assign _is_code = false -%}
+{%- assign _code_url = '' -%}
+{%- if page.links -%}
+  {%- for link in page.links -%}
+    {%- assign _u = link.url | downcase -%}
+    {%- if _u contains 'github.com' or _u contains 'gitlab.com' or _u contains 'huggingface.co' -%}
+      {%- assign _is_code = true -%}
+      {%- if _code_url == '' -%}{%- assign _code_url = link.url -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+{%- assign _type = 'CreativeWork' -%}
+{%- if _is_code -%}{%- assign _type = 'SoftwareSourceCode' -%}{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ _type }}",
+  "name": {{ page.title | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ _img }}",
+  "description": {{ page_description | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ prof.name.full | jsonify }}
+  }{% if _is_code %},
+  "codeRepository": {{ _code_url | jsonify }}{% endif %}{% if page.tags %},
+  "keywords": {{ page.tags | join: ', ' | jsonify }}{% endif %}
+}
+</script>

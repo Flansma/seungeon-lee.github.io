@@ -1,0 +1,28 @@
+{% assign prof = site.data.profile %}
+{%- assign _start = page.date | date_to_xmlschema -%}
+{%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ page.title | jsonify }},
+  "startDate": "{{ _start }}",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": {{ page.venue | jsonify }}
+  },
+  "performer": {
+    "@type": "Person",
+    "name": {{ page.presenter | default: prof.name.full | jsonify }}
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": {{ page.affiliation | default: prof.affiliation.lines[0].en | jsonify }}
+  },
+  "image": "{{ _img }}",
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ page_description | jsonify }}
+}
+</script>
