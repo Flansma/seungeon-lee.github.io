@@ -15,6 +15,11 @@
   lines:
     - "TOEIC 880"
 
+- name: Japanese
+  icon: language
+  lines:
+    - "JLPT N1"
+
 - name: Cheminformatics
   icon: biotech
   lines:

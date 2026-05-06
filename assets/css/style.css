@@ -695,7 +695,8 @@ a:focus, button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
   color: var(--text-muted);
 }
 
-.biblio-meta .highlight-name {
+.biblio-meta .highlight-name,
+.section-meta .highlight-name {
   font-weight: 600;
   color: var(--text-primary);
   text-decoration: underline;
@@ -751,6 +752,7 @@ a:focus, button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 .type-badge.type-preprint { color: var(--type-preprint-text, #92400e); background: var(--type-preprint-bg, #fef3c7); border-color: var(--type-preprint-border, #fde68a); }
 .type-badge.type-talk { color: var(--type-talk-text, #065f46); background: var(--type-talk-bg, #d1fae5); border-color: var(--type-talk-border, #a7f3d0); }
 .type-badge.type-award { color: var(--type-award-text, #7c2d12); background: var(--type-award-bg, #ffedd5); border-color: var(--type-award-border, #fed7aa); }
+.type-badge.type-writing { color: var(--type-writing-text, #5b21b6); background: var(--type-writing-bg, #ede9fe); border-color: var(--type-writing-border, #ddd6fe); }
 
 .news-title { font-weight: 600; color: var(--text-primary); }
 .news-venue { color: var(--text-muted); }

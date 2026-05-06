@@ -85,6 +85,10 @@ collections:
     output: false
     sort_by: date
     order: descending
+  writings:
+    output: false
+    sort_by: date
+    order: descending
   projects:
     output: true
     sort_by: date

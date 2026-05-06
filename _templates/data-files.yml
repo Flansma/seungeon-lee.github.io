@@ -15,14 +15,4 @@
 #   - title: "Scholarship Name"
 #     period: "2024.04 – 2026.03"
 
-# --- _data/writings.yml ---
-# items:
-#   - title: "Writing Title"
-#     venue: "Publication / Platform"
-#     year: 2026
-#     # --- Optional ---
-#     # subtitle: "English subtitle / official translation"
-#     # authors:
-#     #   - First Author
-#     #   - Seungeon Lee
-#     # status: in press           # submitted / in press (omit when published)
+# Note: writings is now a collection (_writings/*.md) — see _templates/writing.md.

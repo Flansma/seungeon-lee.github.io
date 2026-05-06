@@ -200,13 +200,14 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
 </section>
 {% endif %}
 
-{% if site.data.writings and site.data.writings.items and site.data.writings.items.size > 0 %}
+{% if site.writings and site.writings.size > 0 %}
 <!-- Writings -->
 <section class="writings section" id="writings">
   <div class="container">
     <h2 class="title" data-i18n="sections.writings">WRITINGS</h2>
     <ul class="section-list">
-      {% for w in site.data.writings.items %}
+      {% assign writings_sorted = site.writings | sort: 'date' | reverse %}
+      {% for w in writings_sorted %}
       <li class="section-item">
         <div class="section-title">
           {{ w.title }}
@@ -214,7 +215,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
         </div>
         {% if w.subtitle %}<div class="section-subtitle">{{ w.subtitle }}</div>{% endif %}
         <div class="section-meta">
-          {% if w.authors %}{% assign authors_str = w.authors | join: ', ' %}{{ authors_str | replace: 'Seungeon Lee', '<span class="highlight-name">Seungeon Lee</span>' }}. {% endif %}{{ w.venue }}{% if w.year %} — {{ w.year }}{% endif %}
+          {% if w.authors %}{% assign authors_str = w.authors | join: ', ' %}{{ authors_str | replace: 'Seungeon Lee', '<span class="highlight-name">Seungeon Lee</span>' }}. {% endif %}{{ w.venue }} — {{ w.date | date: "%Y" }}
         </div>
       </li>
       {% endfor %}
@@ -276,7 +277,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
   <div class="container">
     <h2 class="title" data-i18n="nav.works">RECENT WORKS</h2>
 
-    {% assign items = site.publications | concat: site.preprints | concat: site.talks | concat: site.awards %}
+    {% assign items = site.publications | concat: site.preprints | concat: site.talks | concat: site.awards | concat: site.writings %}
     {% assign items = items | sort: 'date' | reverse %}
 
     <div class="news-feed">
@@ -302,6 +303,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
           {% when 'preprint' %}{% assign type_label = 'PREPRINT' %}
           {% when 'talk' %}{% assign type_label = 'TALK' %}
           {% when 'award' %}{% assign type_label = 'AWARD' %}
+          {% when 'writing' %}{% assign type_label = 'WRITING' %}
           {% else %}{% assign type_label = 'UPDATE' %}
         {% endcase %}
         <a class="news-item" href="{{ href }}" {% if is_external and href != '#' %}target="_blank" rel="noopener"{% elsif href == '#' %}tabindex="-1" aria-disabled="true" style="pointer-events:none"{% endif %}>
@@ -312,9 +314,9 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
           {% if it.type == 'talk' and it.format %}
             <span class="mini-badge mini-{{ it.format }}">{{ it.format | upcase }}</span>
           {% endif %}
-          {% if it.type == 'article' and it.status %}
+          {% if it.status %}{% if it.type == 'article' or it.type == 'writing' %}
             <span class="mini-badge">{{ it.status | upcase }}</span>
-          {% endif %}
+          {% endif %}{% endif %}
         </a>
       {% endfor %}
     </div>
