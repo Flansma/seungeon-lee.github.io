@@ -476,6 +476,7 @@ a:focus, button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .profile-body {
@@ -765,9 +766,9 @@ a:focus, button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .skill-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  max-width: 800px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -1184,6 +1185,7 @@ a.contact-item:hover {
   }
 
   .skill-list {
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 

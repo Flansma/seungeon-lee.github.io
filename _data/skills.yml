@@ -10,6 +10,12 @@
     - "Transformer-based language models"
     - "Peptide property prediction & federated learning"
 
+- name: Cheminformatics
+  icon: biotech
+  lines:
+    - "HELM notation for peptide representation"
+    - "Compound-protein interaction modeling"
+
 - name: English
   icon: language
   lines:
@@ -19,9 +25,3 @@
   icon: language
   lines:
     - "JLPT N1"
-
-- name: Cheminformatics
-  icon: biotech
-  lines:
-    - "HELM notation for peptide representation"
-    - "Compound-protein interaction modeling"
