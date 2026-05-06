@@ -17,7 +17,7 @@ author:
 twitter:
   username: flansma
   card: summary_large_image
-logo: /assets/img/face.png
+logo: /assets/img/face.jpg
 
 # --- Plugins (all preinstalled on GitHub Pages) ---
 plugins:
@@ -32,7 +32,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: /assets/img/face.png
+      image: /assets/img/face.jpg
   - scope:
       path: ""
       type: talks

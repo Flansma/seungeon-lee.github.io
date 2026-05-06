@@ -21,7 +21,7 @@
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
-{%- assign _img = page.image | default: '/assets/img/face.png' | absolute_url -%}
+{%- assign _img = page.image | default: '/assets/img/face.jpg' | absolute_url -%}
 {%- comment -%} Multi-type: code + research project where applicable {%- endcomment -%}
 {%- if _is_code -%}
   {%- assign _types = '["SoftwareSourceCode", "ResearchProject"]' -%}

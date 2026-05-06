@@ -9,7 +9,7 @@
   "givenName": {{ prof.name.given | jsonify }},
   "familyName": {{ prof.name.family | jsonify }},
   "alternateName": [{{ prof.name.kanji | jsonify }}, {{ prof.name.display | jsonify }}],
-  "image": "{{ '/assets/img/face.png' | absolute_url }}",
+  "image": "{{ '/assets/img/face.jpg' | absolute_url }}",
   "url": "{{ '/' | absolute_url }}",
   "email": "mailto:{{ prof.email }}",
   "jobTitle": {{ prof.title.en | jsonify }},
