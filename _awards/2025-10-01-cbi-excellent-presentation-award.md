@@ -1,5 +1,5 @@
 ---
-title: "Oral Presentation Award"
+title: "Excellent Presentation Award"
 date: 2025-10-01
 venue: "CBI Society Annual Meeting 2025"
 type: award
