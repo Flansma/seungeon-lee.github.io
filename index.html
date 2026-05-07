@@ -284,7 +284,8 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
       {% for it in items %}
         {% assign href = '#' %}
         {% assign is_external = false %}
-        {% if it.url and it.url != '' %}
+        {% comment %}awards/writings have output:false — it.url points to a non-existent page, so skip it for those{% endcomment %}
+        {% if it.url and it.url != '' and it.type != 'writing' and it.type != 'award' %}
           {% assign href = it.url | relative_url %}
         {% elsif it.doi %}
           {% assign href = 'https://doi.org/' | append: it.doi %}
