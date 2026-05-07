@@ -76,4 +76,4 @@ Each image file maps to exactly one role — don't reuse across roles:
 | `assets/img/favicon.svg` | vector "SL" letters | Browser tab + small icons | `<link rel="icon">` |
 | `assets/img/okuno-lab-logo-white.png` | square | Lab affiliation logo | `_includes/header.html` (header brand) |
 
-Per-page `image:` frontmatter overrides the site default — use this on publication/talk pages that have their own banner (e.g., HELM-BERT publication uses `helm-bert-architecture.png` as og:image). Sub-folders under `assets/img/` (`awards/`, `talks/`, `publications/`) hold per-content images named `{event-or-id}-{role}.{ext}` (e.g., `cbi2025-oral.png`, `helm-bert-architecture.png`).
+Per-page `image:` frontmatter overrides the site default — use this on publication/talk pages that have their own banner (e.g., HELM-BERT publication uses `helm-bert-architecture.png` as og:image). Sub-folders under `assets/img/` (`awards/`, `talks/`, `publications/`) hold per-content images named `{event-or-id}-{role}.{ext}` (e.g., `cbi2025-oral.jpg`, `helm-bert-architecture.png`). Photos save as JPG quality ~88; diagrams/screenshots save as PNG (run `pngquant --quality=80-95 --strip` to optimize).

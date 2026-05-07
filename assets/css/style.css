@@ -402,7 +402,7 @@ a:focus, button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 55vh;
+  min-height: 40vh;
   text-align: center;
   background: var(--hero-gradient);
   position: relative;
@@ -1058,7 +1058,7 @@ a.contact-item:hover {
 
   /* Hero */
   .mv {
-    min-height: 50vh;
+    min-height: 38vh;
   }
 
   .mv-container {

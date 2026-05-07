@@ -3,7 +3,7 @@ title: "Excellent Presentation Award"
 date: 2025-10-30
 venue: "CBI Society Annual Meeting 2025"
 type: award
-image: /assets/img/awards/cbi2025-award.png
+image: /assets/img/awards/cbi2025-award.jpg
 links:
   - label: CBI 2025 Award (PDF)
     url: https://cbi-society.org/taikai/taikai25/document/award_oral_presentation.pdf
