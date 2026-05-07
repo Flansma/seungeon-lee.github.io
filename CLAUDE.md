@@ -18,7 +18,7 @@ GitHub Pages plugin allowlist: only `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-
 
 ## Content model: collections, not data files
 
-The site has five content collections (`_publications`, `_preprints`, `_talks`, `_projects`, `_awards`, `_writings`) plus `_data/*.yml` for non-itemized info (profile, bio, skills, navigation, scholarships, experience). **Anything that's a discrete dated item belongs in a collection, not a data file** — collections give you sortable dates, auto-aggregation in Recent Works, individual detail pages, JSON-LD, and badge rendering. The writings collection was originally a data file and was migrated for this exact reason.
+The site has six content collections (`_publications`, `_preprints`, `_talks`, `_projects`, `_awards`, `_writings`) plus `_data/*.yml` for non-itemized info (profile, bio, skills, navigation, scholarships, experience). **Anything that's a discrete dated item belongs in a collection, not a data file** — collections give you sortable dates, auto-aggregation in Recent Works, individual detail pages, JSON-LD, and badge rendering. The writings collection was originally a data file and was migrated for this exact reason.
 
 To add a new content item, copy the matching scaffold from `_templates/` (excluded from build) into the right collection folder. **Never add a `layout:` line** — `_config.yml` `defaults` auto-applies layouts per collection type.
 
@@ -50,3 +50,17 @@ To add a new content item, copy the matching scaffold from `_templates/` (exclud
 ## SEO/structured data
 
 JSON-LD lives in `_includes/jsonld/*.html`, one file per content type, plus `breadcrumb.html`. Each layout in `_layouts/` includes the matching JSON-LD block. The homepage Person graph aggregates ORCID, awards, and social `sameAs` automatically. Google Scholar discovery relies on `citation_*` meta tags emitted by `_includes/citation_meta.html` for academic content pages.
+
+## Image strategy
+
+Three roles, three files — don't mix them:
+
+| File | Aspect | Role | Used by |
+|---|---|---|---|
+| `assets/img/face.jpg` | 425×425 square | Identity icon | apple-touch-icon, ABOUT profile-img, Person.image JSON-LD, favicon (if user opts in) |
+| `assets/img/face.png` | 512×512 square | PWA install icon | `manifest.webmanifest` only |
+| `assets/img/og-card.jpg` | 1200×630 landscape | Social share card | Site-wide default `image:` (`_config.yml`), all JSON-LD content fallbacks |
+| `assets/img/favicon.svg` | vector "SL" letters | Browser tab + small icons | `<link rel="icon">` |
+| `assets/img/face-portrait.jpg` | 425×531 portrait | Source backup, no code refs | (none — kept for re-cropping) |
+
+Per-page `image:` frontmatter overrides the site default — use this on publication/talk pages that have their own banner (e.g., HELM-BERT publication uses `helm-bert-architecture.png` as og:image). Sub-folders under `assets/img/` (`awards/`, `talks/`, `publications/`) hold per-content images named `{event-or-id}-{role}.{ext}` (e.g., `cbi2025-oral.png`, `helm-bert-architecture.png`).

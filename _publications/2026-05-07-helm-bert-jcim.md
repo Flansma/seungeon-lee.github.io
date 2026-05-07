@@ -11,6 +11,7 @@ authors:
 type: article
 status: in press
 featured: true
+image: /assets/img/publications/helm-bert-architecture.png
 note: "Accepted 7 May 2026; DOI to be assigned upon publication."
 ---
 
