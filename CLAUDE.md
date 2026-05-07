@@ -18,7 +18,9 @@ GitHub Pages plugin allowlist: only `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-
 
 ## Content model: collections, not data files
 
-The site has six content collections (`_publications`, `_preprints`, `_talks`, `_projects`, `_awards`, `_writings`) plus `_data/*.yml` for non-itemized info (profile, bio, skills, navigation, scholarships, experience). **Anything that's a discrete dated item belongs in a collection, not a data file** — collections give you sortable dates, auto-aggregation in Recent Works, individual detail pages, JSON-LD, and badge rendering. The writings collection was originally a data file and was migrated for this exact reason.
+The site has five content collections (`_publications`, `_preprints`, `_talks`, `_awards`, `_writings`) plus `_data/*.yml` for non-itemized info (profile, bio, skills, navigation, scholarships, experience). **Anything that's a discrete dated item belongs in a collection, not a data file** — collections give you sortable dates, auto-aggregation in Recent Works, individual detail pages, JSON-LD, and badge rendering. The writings collection was originally a data file and was migrated for this exact reason.
+
+Note: there is no `_projects/` collection. For paper-backed work, the publication page is the canonical hub — add `links:` (GitHub, HuggingFace, etc.) to its frontmatter rather than creating a separate project entry. A dedicated projects collection only makes sense if a non-paper software/tool needs its own landing page; reintroduce it then.
 
 To add a new content item, copy the matching scaffold from `_templates/` (excluded from build) into the right collection folder. **Never add a `layout:` line** — `_config.yml` `defaults` auto-applies layouts per collection type.
 
@@ -27,7 +29,6 @@ To add a new content item, copy the matching scaffold from `_templates/` (exclud
 | `_publications` | individual pages | `ScholarlyArticle` JSON-LD, `citation_*` meta (Google Scholar), DOI/PubMed/PMC identifiers |
 | `_preprints` | individual pages | `ScholarlyArticle` (preprint status), arXiv id |
 | `_talks` | individual pages | `Event` + nested `ScholarlyArticle` JSON-LD |
-| `_projects` | individual pages | `SoftwareSourceCode` + `ResearchProject` (multi-type) |
 | `_awards` | no detail page | Appended to `Person.award[]` JSON-LD + AWARDS section |
 | `_writings` | no detail page | WRITINGS section + Recent Works (no detail page since these are typically external magazine articles) |
 
@@ -42,7 +43,6 @@ To add a new content item, copy the matching scaffold from `_templates/` (exclud
 | `_talks` | presentation date |
 | `_awards` | award ceremony / announcement date (not the conference start) |
 | `_writings` | scheduled / actual issue release date |
-| `_projects` | project start date — file uses slug-only naming (`_projects/slug.md`), not `YYYY-MM-DD-slug.md`, because projects are long-running entities not point events; URL stays `/projects/{slug}/` |
 
 **Status as a lifecycle field.** Items can carry `status: submitted` or `status: in press`. Removing the line is the only edit needed when an item moves to "published" — badges (both inline `badge-status-*` on bibliography rows and `mini-badge` on Recent Works feed) auto-disappear. Don't bake status into venue/title strings.
 

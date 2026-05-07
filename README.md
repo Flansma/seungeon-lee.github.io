@@ -28,14 +28,13 @@ Built with Jekyll on GitHub Pages with rich SEO and structured data:
 │   └── jsonld/
 │       ├── person.html        # Homepage Person + WebSite
 │       ├── talk.html          # Event + workPerformed: ScholarlyArticle
-│       ├── project.html       # SoftwareSourceCode + ResearchProject (auto multi-type)
 │       ├── publication.html   # ScholarlyArticle + DOI/PubMed/PMC identifiers
 │       ├── preprint.html      # ScholarlyArticle (preprint status) + arXiv identifier
 │       └── breadcrumb.html    # BreadcrumbList for sub-pages
 ├── _layouts/
 │   ├── default.html           # Base layout (sets html lang)
-│   ├── talk.html, project.html, publication.html, preprint.html
-├── _talks/, _projects/        # Output:true → individual detail pages
+│   ├── talk.html, publication.html, preprint.html
+├── _talks/                    # Output:true → individual detail pages
 ├── _publications/, _preprints/  # Output:true → individual detail pages
 ├── _awards/                   # Output:false → fed into Person.award array
 ├── _writings/                 # Output:false → WRITINGS section (industry magazines, commentary)
@@ -58,7 +57,6 @@ Copy the matching template from `_templates/` into the right collection folder. 
 | Want to add | Folder | Template | Auto-generated |
 |---|---|---|---|
 | Talk / presentation | `_talks/YYYY-MM-DD-slug.md` | `_templates/talk.md` | `Event` + nested `ScholarlyArticle` JSON-LD, `citation_*`, breadcrumb, sitemap, feed |
-| Project | `_projects/slug.md` | `_templates/project.md` | `SoftwareSourceCode` + `ResearchProject` (when GitHub link is present), `subjectOf` linking to arXiv/DOI |
 | Journal article | `_publications/YYYY-MM-DD-slug.md` | `_templates/article.md` | `ScholarlyArticle` with DOI/PubMed/PMC, `citation_*`, breadcrumb, sitemap, feed |
 | Conference paper | `_publications/YYYY-MM-DD-slug.md` | `_templates/conference.md` | Same as article, listed under CONFERENCE PAPERS |
 | Preprint | `_preprints/YYYY-MM-DD-slug.md` | `_templates/preprint.md` | `ScholarlyArticle` (preprint status) with arXiv id, `citation_*`, breadcrumb, sitemap, feed |

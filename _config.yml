@@ -40,11 +40,6 @@ defaults:
       layout: talk
   - scope:
       path: ""
-      type: projects
-    values:
-      layout: project
-  - scope:
-      path: ""
       type: publications
     values:
       layout: publication
@@ -90,11 +85,6 @@ collections:
     output: false
     sort_by: date
     order: descending
-  projects:
-    output: true
-    sort_by: date
-    order: descending
-    permalink: /projects/:name/
 
 markdown: kramdown
 theme: null

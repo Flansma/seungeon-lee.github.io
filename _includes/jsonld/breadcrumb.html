@@ -1,13 +1,10 @@
 {%- comment -%}
   Generic breadcrumb: Home › <Section> › <Page Title>
-  Section is derived from layout (talk → "Talks", project → "Projects").
+  Section is derived from layout.
 {%- endcomment -%}
 {%- if page.layout == 'talk' -%}
   {%- assign _section_name = 'Talks' -%}
   {%- assign _section_url = '/#bibliography' | absolute_url -%}
-{%- elsif page.layout == 'project' -%}
-  {%- assign _section_name = 'Projects' -%}
-  {%- assign _section_url = '/#projects' | absolute_url -%}
 {%- elsif page.layout == 'publication' -%}
   {%- assign _section_name = 'Publications' -%}
   {%- assign _section_url = '/#bibliography' | absolute_url -%}

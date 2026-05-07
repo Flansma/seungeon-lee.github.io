@@ -1,15 +1,14 @@
 {%- comment -%}
-  Open Graph article meta tags for content pages (talks/projects/publications/preprints).
+  Open Graph article meta tags for content pages (talks/publications/preprints).
   Augments jekyll-seo-tag's og:type="article" with publish time, author, section, tags.
 {%- endcomment -%}
 {%- assign _is_article = false -%}
-{%- if page.layout == 'talk' or page.layout == 'project' or page.layout == 'publication' or page.layout == 'preprint' -%}
+{%- if page.layout == 'talk' or page.layout == 'publication' or page.layout == 'preprint' -%}
   {%- assign _is_article = true -%}
 {%- endif -%}
 {%- if _is_article -%}
 {%- assign _section = 'Article' -%}
 {%- if page.layout == 'talk' -%}{%- assign _section = 'Talk' -%}{%- endif -%}
-{%- if page.layout == 'project' -%}{%- assign _section = 'Project' -%}{%- endif -%}
 {%- if page.layout == 'publication' -%}{%- assign _section = 'Publication' -%}{%- endif -%}
 {%- if page.layout == 'preprint' -%}{%- assign _section = 'Preprint' -%}{%- endif -%}
 <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">

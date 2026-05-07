@@ -241,37 +241,6 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
 </section>
 {% endif %}
 
-{% if site.projects and site.projects.size > 0 %}
-<!-- Projects -->
-<section class="projects section" id="projects">
-  <div class="container">
-    <h2 class="title" data-i18n="sections.projects">PROJECTS</h2>
-    <div class="selected-list">
-      {% assign projs = site.projects | sort: 'date' | reverse %}
-      {% for p in projs %}
-      <a class="selected-card" href="{{ p.url | relative_url }}">
-        <div class="selected-meta">
-          {% if p.status %}<span class="badge badge-{{ p.status }}">{{ p.status | upcase }}</span>{% endif %}
-          <span class="selected-year">{{ p.date | date: "%Y" }}</span>
-        </div>
-        <div class="selected-title">{{ p.title }}</div>
-        {% if p.description %}
-        <div class="selected-authors">{{ p.description }}</div>
-        {% endif %}
-        {% if p.tags %}
-        <div class="selected-links">
-          {% for tag in p.tags limit:3 %}
-          <span class="badge">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
-
 <!-- Recent Works -->
 <section class="works section" id="works">
   <div class="container">

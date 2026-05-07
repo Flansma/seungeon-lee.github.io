@@ -13,6 +13,11 @@ status: in press
 featured: true
 image: /assets/img/publications/helm-bert-architecture.png
 note: "Accepted 7 May 2026; DOI to be assigned upon publication."
+links:
+  - label: GitHub
+    url: https://github.com/clinfo/HELM-BERT
+  - label: HuggingFace
+    url: https://huggingface.co/Flansma/helm-bert
 ---
 
 ![HELM-BERT architecture: encoder-only transformer pretrained on HELM notation, with a hybrid block combining nGIE convolution and disentangled attention, transformer layers, and an enhanced mask decoder.]({{ '/assets/img/publications/helm-bert-architecture.png' | relative_url }})
