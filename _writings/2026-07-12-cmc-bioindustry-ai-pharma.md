@@ -4,8 +4,8 @@ subtitle: Advances in Representation Learning, Interaction Understanding, and Ca
 date: 2026-07-12
 venue: 月刊バイオインダストリー（CMC出版）2026年7月号 特集「AI創薬の最前線」
 authors:
-  - Seungeon Lee
   - Shigeyuki Matsumoto
+  - Seungeon Lee
 type: writing
 status: in press
 ---
