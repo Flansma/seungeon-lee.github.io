@@ -10,6 +10,7 @@ authors:
   - Yasushi Okuno
 type: article
 status: in press
+featured: true
 note: "Accepted 7 May 2026; DOI to be assigned upon publication."
 ---
 

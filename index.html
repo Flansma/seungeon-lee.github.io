@@ -65,7 +65,7 @@ description: "Seungeon Lee's portfolio site — AI-driven medium-sized peptide d
           </div>
           <div class="selected-title">{{ it.title }}</div>
           {% if it.authors %}
-          <div class="selected-authors">{{ it.authors | join: ', ' }}</div>
+          <div class="selected-authors">{{ it.authors | join: ', ' | replace: 'Seungeon Lee', '<span class="highlight-name">Seungeon Lee</span>' }}</div>
           {% endif %}
           <div class="selected-links">
             {% if it.doi %}<span class="badge">DOI</span>{% endif %}
