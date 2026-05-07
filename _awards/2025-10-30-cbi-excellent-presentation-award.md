@@ -1,6 +1,6 @@
 ---
 title: "Excellent Presentation Award"
-date: 2025-10-01
+date: 2025-10-30
 venue: "CBI Society Annual Meeting 2025"
 type: award
 image: /assets/img/awards/cbi2025-award.png

@@ -13,7 +13,7 @@ permalink: /manifest.webmanifest
   "lang": "{{ site.lang | default: 'en' }}",
   "icons": [
     {
-      "src": "{{ '/assets/img/face.png' | relative_url }}",
+      "src": "{{ '/assets/img/pwa-icon-512.png' | relative_url }}",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

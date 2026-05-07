@@ -33,6 +33,17 @@ To add a new content item, copy the matching scaffold from `_templates/` (exclud
 
 ## Cross-cutting conventions
 
+**Date semantics per collection.** The `date:` field (and YYYY-MM-DD filename prefix) is the chronological anchor used for sorting and Recent Works ordering. Each collection has a fixed convention:
+
+| Collection | `date:` means |
+|---|---|
+| `_publications` | publication date (or acceptance date while `status: in press`) |
+| `_preprints` | arXiv submission date |
+| `_talks` | presentation date |
+| `_awards` | award ceremony / announcement date (not the conference start) |
+| `_writings` | scheduled / actual issue release date |
+| `_projects` | project start date — file uses slug-only naming (`_projects/slug.md`), not `YYYY-MM-DD-slug.md`, because projects are long-running entities not point events; URL stays `/projects/{slug}/` |
+
 **Status as a lifecycle field.** Items can carry `status: submitted` or `status: in press`. Removing the line is the only edit needed when an item moves to "published" — badges (both inline `badge-status-*` on bibliography rows and `mini-badge` on Recent Works feed) auto-disappear. Don't bake status into venue/title strings.
 
 **Recent Works aggregation** (`index.html`, search for `site.publications | concat:`). The feed concatenates all collections, sorts by date, and switches type label via a `{% case type %}` block. Adding a new collection requires updating three places: the `concat` chain, the type-label case block, and a `.type-badge.type-{name}` CSS rule in `assets/css/style.css`. The `mini-badge` for status currently shows for `type == 'article' or type == 'writing'` — extend the condition if other types need lifecycle badges.
@@ -53,14 +64,14 @@ JSON-LD lives in `_includes/jsonld/*.html`, one file per content type, plus `bre
 
 ## Image strategy
 
-Three roles, three files — don't mix them:
+Each image file maps to exactly one role — don't reuse across roles:
 
 | File | Aspect | Role | Used by |
 |---|---|---|---|
-| `assets/img/face.jpg` | 425×425 square | Identity icon | apple-touch-icon, ABOUT profile-img, Person.image JSON-LD, favicon (if user opts in) |
-| `assets/img/face.png` | 512×512 square | PWA install icon | `manifest.webmanifest` only |
+| `assets/img/face.jpg` | 425×425 square | Identity headshot | apple-touch-icon, ABOUT profile-img, Person.image JSON-LD |
+| `assets/img/pwa-icon-512.png` | 512×512 square | PWA install icon | `manifest.webmanifest` only |
 | `assets/img/og-card.jpg` | 1200×630 landscape | Social share card | Site-wide default `image:` (`_config.yml`), all JSON-LD content fallbacks |
 | `assets/img/favicon.svg` | vector "SL" letters | Browser tab + small icons | `<link rel="icon">` |
-| `assets/img/face-portrait.jpg` | 425×531 portrait | Source backup, no code refs | (none — kept for re-cropping) |
+| `assets/img/okuno-lab-logo-white.png` | square | Lab affiliation logo | `_includes/header.html` (header brand) |
 
 Per-page `image:` frontmatter overrides the site default — use this on publication/talk pages that have their own banner (e.g., HELM-BERT publication uses `helm-bert-architecture.png` as og:image). Sub-folders under `assets/img/` (`awards/`, `talks/`, `publications/`) hold per-content images named `{event-or-id}-{role}.{ext}` (e.g., `cbi2025-oral.png`, `helm-bert-architecture.png`).
