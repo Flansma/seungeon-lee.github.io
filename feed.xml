@@ -6,7 +6,7 @@ permalink: /feed.xml
   Combined Atom feed across all output:true collections, sorted by date desc.
   Extend by adding `| concat: site.<collection>` below.
 {%- endcomment -%}
-{%- assign _entries = site.publications | concat: site.preprints | concat: site.talks | concat: site.projects | sort: "date" | reverse -%}
+{%- assign _entries = site.publications | concat: site.preprints | concat: site.talks | sort: "date" | reverse -%}
 {%- assign _latest = _entries | first -%}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
