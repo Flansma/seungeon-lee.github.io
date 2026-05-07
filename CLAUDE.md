@@ -42,7 +42,9 @@ To add a new content item, copy the matching scaffold from `_templates/` (exclud
 | `_preprints` | arXiv submission date |
 | `_talks` | presentation date |
 | `_awards` | award ceremony / announcement date (not the conference start) |
-| `_writings` | scheduled / actual issue release date |
+| `_writings` | acceptance / in-press entry date (or actual issue release date once published) |
+
+**Lifecycle rule:** while `status: in press`, `date:` should reflect the **most recent status change** (acceptance/in-press entry), not a future scheduled date. This keeps Recent Works ordering meaningful — items appear in the order their status actually changed. When the item is published, update both `date:` to the actual publication date AND remove the `status:` line. Rename the file's date prefix to match.
 
 **Status as a lifecycle field.** Items can carry `status: submitted` or `status: in press`. Removing the line is the only edit needed when an item moves to "published" — badges (both inline `badge-status-*` on bibliography rows and `mini-badge` on Recent Works feed) auto-disappear. Don't bake status into venue/title strings.
 
